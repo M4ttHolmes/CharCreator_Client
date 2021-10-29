@@ -16,7 +16,7 @@ function CreateCharacter(props) {
 
         let url = 'http://localhost:3000/character/create';
         fetch(url, {
-            method: 'Post',
+            method: 'POST',
             body: JSON.stringify({
                 name: name,
                 appearance: appearance,
@@ -30,7 +30,7 @@ function CreateCharacter(props) {
             }),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.sessionToken
+                'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM1NTQxMTUwLCJleHAiOjE2MzU2Mjc1NTB9.cS1-p-wOTQ0oQI4QBhzP8lql4g0bS-MS0dXGYcJxzT8"
             })
         })
         .then(response => response.json())

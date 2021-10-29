@@ -3,6 +3,7 @@ import Reactstrap, { Row } from "reactstrap";
 import Radium from "radium";
 
 import Characters from "../characters/CharactersIndex";
+import CharacterCreator from "../characters/CharacterCreators";
 
 const Home = () => {
 
@@ -16,6 +17,7 @@ const Home = () => {
                 <div id="characters">
                 <Row>   
                     <Characters />
+                    <CharacterCreator />
                 </Row>    
             </div>
         </div>
