@@ -49,15 +49,19 @@ const handleSubmit = event => {
     event.preventDefault();
     let reqBody = login ?
     {
-        email: email,
-        password: password,
+        user: {
+            email: email,
+            password: password,
+        }
     } :
     {
-        email: email,
-        password: password,
-        username: username,
-        firstName: firstName,
-        lastName: lastName
+        user: {
+            email: email,
+            password: password,
+            username: username,
+            firstName: firstName,
+            lastName: lastName,
+        }
     }
     let url = login ?
     'http://localhost:3000/user/login' :
