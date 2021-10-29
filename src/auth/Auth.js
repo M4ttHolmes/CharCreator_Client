@@ -8,6 +8,7 @@ const styles = {
         display: "table",
         width: "100%", 
         backgroundSize: "cover",
+        textAlign: "center",
         backgroundColor: "gray",
         border: "solid"
     }
@@ -23,7 +24,7 @@ const Auth = (props) => {
     const [login, setLogin] = useState(true);
 
 const title = () => {
-    return !login ? 'Register A New User' : 'Login'
+    return !login ? 'Register A New User' : 'Sign In'
 }
 
 const loginToggle = (e) => {
@@ -56,7 +57,35 @@ const signupFields = () => !login ?
 ) : null;
 
 const handleSubmit = event => {
-    /*START HERE 1:29:30 in video */
+    event.preventDefault();
+
+    let reqBody = login ?
+    {
+        email: email,
+        password: password,
+    } :
+    {
+        email: email,
+        password: password,
+        username: username,
+        firstName: firstName,
+        lastName: lastName
+    }
+
+    let url = login ?
+    'http://localhost:3000/user/login' :
+    'http://localhost:3000/user/register';
+
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(reqBody),
+        headers: new Headers({
+            'Content-Type' : 'application/json'
+        })
+    })
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(err => console.log(err))
 }
 
     return (
@@ -68,13 +97,14 @@ const handleSubmit = event => {
                 {signupFields()}
                 <label htmlFor="email">Email:</label>
                 <br/>
-                <input type='text' id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <br/>
                 <label htmlFor="password">Password:</label>
                 <br/>
                 <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <br/>
-                <button type="submit">Create User</button>
+                <br/>
+                <button type="submit" onClick={handleSubmit}>Submit </button>
             </form>
         </div>
     )
