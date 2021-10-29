@@ -1,34 +1,44 @@
 import React, {useState} from 'react';
 import Radium from 'radium';
 import backgroundImage from "../assets/DDCC.jpg"
+
 const styles = {
+    
     login: {
         display: "table",
-        width: "100%",
+        width: "100%", 
         backgroundSize: "cover",
+        textAlign: "center",
         backgroundColor: "gray",
         border: "solid"
     }
 }
+
 const Auth = (props) => {
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [login, setLogin] = useState(true);
+
 const title = () => {
-    return !login ? 'Register A New User' : 'Login'
+    return !login ? 'Register A New User' : 'Sign In'
 }
+
 const loginToggle = (e) => {
     e.preventDefault();
+
     setLogin(!login)
+
     setEmail('');
     setPassword('');
     setUsername('');
     setFirstName('');
     setLastName('');
 }
+
 const signupFields = () => !login ?
 (
     <div>
@@ -45,23 +55,31 @@ const signupFields = () => !login ?
         <input type='text' id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} />
     </div>
 ) : null;
+
 const handleSubmit = event => {
     event.preventDefault();
+
     let reqBody = login ?
     {
-        email: email,
-        password: password,
+        user: {
+            email: email,
+            password: password,
+        }
     } :
     {
-        email: email,
-        password: password,
-        username: username,
-        firstName: firstName,
-        lastName: lastName
+        user: {
+            email: email,
+            password: password,
+            username: username,
+            firstName: firstName,
+            lastName: lastName,
+        }
     }
+
     let url = login ?
     'http://localhost:3000/user/login' :
     'http://localhost:3000/user/register';
+
     fetch(url, {
         method: 'POST',
         body: JSON.stringify(reqBody),
@@ -73,6 +91,7 @@ const handleSubmit = event => {
     .then(json => console.log(json))
     .catch(err => console.log(err))
 }
+
     return (
         <div style={styles.login}>
             <form id="Login">
@@ -89,9 +108,10 @@ const handleSubmit = event => {
                 <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <br/>
                 <br/>
-                <button type="submit" onClick={handleSubmit}>Create User</button>
+                <button type="submit" onClick={handleSubmit}>Submit </button>
             </form>
         </div>
     )
 }
+
 export default Auth;
