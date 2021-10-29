@@ -1,5 +1,6 @@
 import React from "react";
 import CreateCharacter from "./CharacterCreate";
+
 const DisplayCharacter = (props) => {
 // Delete Character
     const deleteCharacter = (charId) => {
@@ -14,13 +15,12 @@ const DisplayCharacter = (props) => {
             headers: new Headers({
                 "Content-Type": "application/json",
                 "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM1NTQxMTUwLCJleHAiOjE2MzU2Mjc1NTB9.cS1-p-wOTQ0oQI4QBhzP8lql4g0bS-MS0dXGYcJxzT8"
+
             })
         })
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                //// window.location.reload();
-                //// DisplayCharacter();
                 props.getMyCharacters();
             })
             .catch(err => {
@@ -31,6 +31,7 @@ const DisplayCharacter = (props) => {
 
     return(
         <div>
+            <h1>My Characters ({props.char.length}):</h1> 
             {props.char.map((char, key) => {
                 return(
                     <div className="card" key={key}>

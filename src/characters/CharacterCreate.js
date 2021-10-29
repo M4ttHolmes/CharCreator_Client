@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function CreateCharacter(props) {
+const CreateCharacter = (props) => {
     const [name, setName] = useState("");
     const [appearance, setAppearance] = useState("");
     const [personality, setPeronality] = useState("");
@@ -30,6 +30,7 @@ function CreateCharacter(props) {
             }),
             headers: new Headers({
                 'Content-Type': 'application/json',
+                // 'Authorization': props.sessionToken
                 'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM1NTQxMTUwLCJleHAiOjE2MzU2Mjc1NTB9.cS1-p-wOTQ0oQI4QBhzP8lql4g0bS-MS0dXGYcJxzT8"
             })
         })
@@ -43,15 +44,15 @@ function CreateCharacter(props) {
 
     return (
         <form onSubmit={postCharacter}>
-            <input type='text' onChange={(e) => setName(e.target.value)} value= {name} placeholder="Name" />
-            <input type='text' onChange={(e) => setAppearance(e.target.value)} value= {appearance} placeholder="Appearance" />
-            <input type='text' onChange={(e) => setPeronality(e.target.value)} value= {personality} placeholder="Personality" />
-            <input type='text' onChange={(e) => setDescription(e.target.value)} value= {description} placeholder="Description" />
-            <input type='text' onChange={(e) => setBackground(e.target.value)} value= {background} placeholder="Background" />
+            <input type='text' onChange={(e) => setName(e.target.value)} value={name} placeholder="Name" />
+            <input type='text' onChange={(e) => setAppearance(e.target.value)} value={appearance} placeholder="Appearance" />
+            <input type='text' onChange={(e) => setPeronality(e.target.value)} value={personality} placeholder="Personality" />
+            <input type='text' onChange={(e) => setDescription(e.target.value)} value={description} placeholder="Description" />
+            <input type='text' onChange={(e) => setBackground(e.target.value)} value={background} placeholder="Background" />
             <input type='text' onChange={(e) => setRace(e.target.value)} value= {race} placeholder="Race" />
-            <input type='text' onChange={(e) => setCharClass(e.target.value)} value= {charClass} placeholder="Character Class" />
-            <input type='text' onChange={(e) => setAlignment(e.target.value)} value= {alignment} placeholder="Alignment" />
-            <input type='text' onChange={(e) => setCampaignName(e.target.value)} value= {campaignName} placeholder="Campaign Name" />
+            <input type='text' onChange={(e) => setCharClass(e.target.value)} value={charClass} placeholder="Character Class" />
+            <input type='text' onChange={(e) => setAlignment(e.target.value)} value={alignment} placeholder="Alignment" />
+            <input type='text' onChange={(e) => setCampaignName(e.target.value)} value={campaignName} placeholder="Campaign Name" />
             <br />
             <button type='submit'>Submit</button>
         </form>
