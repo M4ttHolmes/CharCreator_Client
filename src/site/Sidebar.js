@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import Home from "./Home";
 import Search from "./Search"
-// import Create from "./Create"
+import CreateCharacter from "../characters/CharacterCreate";
 
 const Sidebar = () => {
     return(
@@ -20,7 +20,7 @@ const Sidebar = () => {
             <div className="sidebar-route">
                 <Switch>
                     <Route exact path="/"><Home /></Route>
-                    {/* <Route exact path="/create"><Create /></Route> */}
+                    <Route exact path="/create"><CreateCharacter /></Route>
                     <Route exact path="/home"><Home /></Route>
                     <Route exact path="/search"><Search /></Route>
                 </Switch>

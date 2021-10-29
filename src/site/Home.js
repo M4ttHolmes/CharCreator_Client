@@ -12,11 +12,8 @@ const Home = () => {
                 <h1>D&D Character Creator</h1>
                 <p>Create/Manage your characters.</p>
                 <hr />
-                <h1>My Characters:</h1>
                 <div id="characters">
-                <Row>   
                     <Characters />
-                </Row>    
             </div>
         </div>
     </div>
