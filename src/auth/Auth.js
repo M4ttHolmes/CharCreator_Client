@@ -61,15 +61,19 @@ const handleSubmit = event => {
 
     let reqBody = login ?
     {
-        email: email,
-        password: password,
+        user: {
+            email: email,
+            password: password,
+        }
     } :
     {
-        email: email,
-        password: password,
-        username: username,
-        firstName: firstName,
-        lastName: lastName
+        user: {
+            email: email,
+            password: password,
+            username: username,
+            firstName: firstName,
+            lastName: lastName,
+        }
     }
 
     let url = login ?
