@@ -37,7 +37,7 @@ const Characters = (props) => {
         {/* {createPie ? <CreatePie setCreatePie={setCreatePie} sessionToken={props.sessionToken}/> 
         : null}
         {!createPie ? <button onClick={buttonHandler}>Create Pie!</button> : null} */}
-            <DisplayCharacter char={char}/>
+            <DisplayCharacter char={char} getMyCharacters={getMyCharacters}/>
         </>
     )
 }

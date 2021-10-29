@@ -1,33 +1,33 @@
 import React from "react";
-
-// Delete Character
-const deleteCharacter = (charId) => {
-    console.log("deleteCharacter Function Called");
-    console.log(charId);
-
-    const fetch_url = `http://localhost:3000/character/${charId}`;
-    const accessToken = localStorage.getItem("SessionToken");
-
-    fetch(fetch_url, {
-        method: "DELETE",
-        headers: new Headers({
-            "Content-Type": "application/json",
-            "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJtYXR0QGVtYWlsLmNvbSIsImlhdCI6MTYzNTQ1MjkzNCwiZXhwIjoxNjM1NTM5MzM0fQ.Effj0rUc03iEaENkXPR38bPdZ7Qbd-MLGnsgXefa8BE"
-        })
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            window.location.reload();
-            // DisplayCharacter();
-            // getMyCharacters();
-        })
-        .catch(err => {
-            console.error(err);
-        })
-    }; 
-
 const DisplayCharacter = (props) => {
+// Delete Character
+    const deleteCharacter = (charId) => {
+        console.log("deleteCharacter Function Called");
+        console.log(charId);
+
+        const fetch_url = `http://localhost:3000/character/${charId}`;
+        const accessToken = localStorage.getItem("SessionToken");
+
+        fetch(fetch_url, {
+            method: "DELETE",
+            headers: new Headers({
+                "Content-Type": "application/json",
+                "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJtYXR0QGVtYWlsLmNvbSIsImlhdCI6MTYzNTQ1MjkzNCwiZXhwIjoxNjM1NTM5MzM0fQ.Effj0rUc03iEaENkXPR38bPdZ7Qbd-MLGnsgXefa8BE"
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                //// window.location.reload();
+                //// DisplayCharacter();
+                props.getMyCharacters();
+            })
+            .catch(err => {
+                console.error(err);
+            })
+        }; 
+
+
     return(
         <div>
             {props.char.map((char, key) => {
