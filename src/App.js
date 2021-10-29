@@ -1,6 +1,7 @@
 import React from "react"
 import "bootstrap/dist/css/bootstrap.css"
 import './App.css';
+import Auth from './auth/Auth'
 
 import Header from "./site/Header";
 import Sidebar from "./site/Sidebar";
@@ -13,6 +14,7 @@ function App() {
       <Router>
         <Sidebar />
       </Router>
+      <Auth />
     </div>
   );
 }
