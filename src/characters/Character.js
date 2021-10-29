@@ -13,7 +13,7 @@ const DisplayCharacter = (props) => {
             method: "DELETE",
             headers: new Headers({
                 "Content-Type": "application/json",
-                "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJtYXR0QGVtYWlsLmNvbSIsImlhdCI6MTYzNTQ1MjkzNCwiZXhwIjoxNjM1NTM5MzM0fQ.Effj0rUc03iEaENkXPR38bPdZ7Qbd-MLGnsgXefa8BE"
+                "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzUsImVtYWlsIjoidXNlcjQwQGVtYWlsLmNvbSIsImlhdCI6MTYzNTUxODczNSwiZXhwIjoxNjM1NjA1MTM1fQ.iUY4ONvzZJM3A0t7YD-OshxGCr0meeLTvGVA-6t7W48"
             })
         })
             .then(response => response.json())
