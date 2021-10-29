@@ -1,4 +1,5 @@
 import React from "react";
+
 const DisplayCharacter = (props) => {
 // Delete Character
     const deleteCharacter = (charId) => {
@@ -18,8 +19,6 @@ const DisplayCharacter = (props) => {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                //// window.location.reload();
-                //// DisplayCharacter();
                 props.getMyCharacters();
             })
             .catch(err => {
@@ -30,7 +29,8 @@ const DisplayCharacter = (props) => {
 
     return(
         <div>
-             {props.char.map((char, key) => {
+            <h1>My Characters ({props.char.length}):</h1> 
+            {props.char.map((char, key) => {
                 return(
                     <div className="card" key={key}>
                         <div className="card-body">
