@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DisplayCharacter from "./Character"
+import CreateCharacter from "./CharacterCreate";
 
 const Characters = (props) => {
     const [char, setChar] = useState([]);
@@ -13,7 +14,8 @@ const Characters = (props) => {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json",
-                "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzUsImVtYWlsIjoidXNlcjQwQGVtYWlsLmNvbSIsImlhdCI6MTYzNTUxODczNSwiZXhwIjoxNjM1NjA1MTM1fQ.iUY4ONvzZJM3A0t7YD-OshxGCr0meeLTvGVA-6t7W48"
+                "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjM1NTQyMzE0LCJleHAiOjE2MzU2Mjg3MTR9.6REeRD5MaWEXAzXedSibhpcyesd80x8KK3TS0g9Ctn8"
+
             })
         })
         .then(response => response.json())
@@ -42,5 +44,6 @@ const Characters = (props) => {
         </>
     )
 }
+
 
 export default Characters;
