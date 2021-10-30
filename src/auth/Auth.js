@@ -16,9 +16,9 @@ const styles = {
 }
 
 const Auth = (props) => {
-    let history = useHistory();
+    // let history = useHistory();
 
-    history.push('/home')
+    // history.push('/home')
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -92,7 +92,9 @@ const handleSubmit = event => {
         })
     })
     .then(response => response.json())
-    .then(json => props.updateLocalStorage(json.token))
+    .then(json => {
+        props.updateLocalStorage(json.sessionToken)
+    })
     .catch(err => console.log(err))
 }
 
