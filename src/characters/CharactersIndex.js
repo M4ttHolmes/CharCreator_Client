@@ -14,7 +14,7 @@ const Characters = (props) => {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json",
-                "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjM1NTQyMzE0LCJleHAiOjE2MzU2Mjg3MTR9.6REeRD5MaWEXAzXedSibhpcyesd80x8KK3TS0g9Ctn8"
+                "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzUsImlhdCI6MTYzNTYwNjIyNSwiZXhwIjoxNjM1NjkyNjI1fQ.uqjlHxOSXeQca_3d2aPdhDBQpmGgGSfREupQHBDd_To"
 
             })
         })

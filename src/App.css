@@ -37,7 +37,6 @@ ul {
 }
 
 .sidebar-list-styling {
-  padding-left: 50px;
   padding-top: 15px;
   width: 20%;
   background-color: #53565A;
@@ -51,10 +50,13 @@ ul {
 
 .sidebar-list li{
   margin-top: 25px;
+  display: flex;
+  justify-content: center;
 }
 
 .navButton {
   width: 100%;
+  height: 45px;
 }
 
 .sidebar-route {

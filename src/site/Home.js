@@ -4,7 +4,6 @@ import Radium from "radium";
 
 import Characters from "../characters/CharactersIndex";
 
-
 const Home = () => {
 
     return(
@@ -14,13 +13,11 @@ const Home = () => {
                 <p>Create/Manage your characters.</p>
                 <hr />
                 <div id="characters">
-                <Row>
-                    <Characters />
-                </Row>    
+                    <Characters />   
             </div>
         </div>
     </div>
-    );
+    )
 };
 
 export default Radium(Home);
