@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {Button, Form, FormGroup, Label, Input} from "reactstrap";
 
 const CreateCharacter = () => {
     const [name, setName] = useState("");
@@ -65,19 +66,59 @@ const CreateCharacter = () => {
     return (
         <div className="main">
             <div className="mainDiv">
-                <form onSubmit={createCharacter}>
-                    <input type='text' onChange={(e) => setName(e.target.value)} value={name} placeholder="Name" />
-                    <input type='text' onChange={(e) => setAppearance(e.target.value)} value={appearance} placeholder="Appearance" />
-                    <input type='text' onChange={(e) => setPersonality(e.target.value)} value={personality} placeholder="Personality" />
-                    <input type='text' onChange={(e) => setDescription(e.target.value)} value={description} placeholder="Description" />
-                    <input type='text' onChange={(e) => setBackground(e.target.value)} value={background} placeholder="Background" />
-                    <input type='text' onChange={(e) => setRace(e.target.value)} value= {race} placeholder="Race" />
-                    <input type='text' onChange={(e) => setCharClass(e.target.value)} value={charClass} placeholder="Character Class" />
-                    <input type='text' onChange={(e) => setAlignment(e.target.value)} value={alignment} placeholder="Alignment" />
-                    <input type='text' onChange={(e) => setCampaignName(e.target.value)} value={campaignName} placeholder="Campaign Name" />
+                <h1>Create Character</h1>
+                <p>Please enter the details of your new character. You must include a name for your character, but all other fields can be filled in later.</p>
+                <Form onSubmit={createCharacter}>
+                    <Input required onChange={(e) => setName(e.target.value)} value={name} placeholder="*Name" />
+                    <Input type="select" onChange={(e) => setAlignment(e.target.value)} value={alignment} placeholder="Alignment">
+                        <option hidden>--Choose an Alignment--</option>
+                        <option value="Lawful Good">Lawful Good</option>
+                        <option value="Neutral Good">Neutral Good</option>
+                        <option value="Chaotic Good">Chaotic Good</option>
+                        <option disabled>──────────</option>
+                        <option value="Lawful Neutral">Lawful Neutral</option>
+                        <option value="True Neutral">True Neutral</option>
+                        <option value="Chaotic Neutral">Chaotic Neutral</option>
+                        <option disabled>──────────</option>
+                        <option value="Lawful Evil">Lawful Evil</option>
+                        <option value="Neutral Evil">Neutral Evil</option>
+                        <option value="Chaotic Evil">Chaotic Evil</option>
+                    </Input>
+                    <Input type='select' onChange={(e) => setRace(e.target.value)} value= {race} placeholder="Race">
+                        <option hidden>--Choose a Race--</option>
+                        <option value="Dwarf">Dwarf</option>
+                        <option value="Elf">Elf</option>
+                        <option value="Halfling">Halfling</option>
+                        <option value="Human">Human</option>
+                        <option value="Dragonborn">Dragonborn</option>
+                        <option value="Gnome">Gnome</option>
+                        <option value="Half-Elf">Half-Elf</option>
+                        <option value="Half-Orc">Half-Orc</option>
+                        <option value="Tiefling">Tiefling</option>
+                    </Input>
+                    <Input type='select' onChange={(e) => setCharClass(e.target.value)} value={charClass} placeholder="Character Class">
+                        <option hidden>--Choose a Class--</option>
+                        <option value="Artificer">Artificer</option>
+                        <option value="Barbarian">Barbarian</option>
+                        <option value="Bard">Bard</option>
+                        <option value="Cleric">Cleric</option>
+                        <option value="Druid">Druid</option>
+                        <option value="Fighter">Fighter</option>
+                        <option value="Monk">Monk</option>
+                        <option value="Paladin">Paladin</option>
+                        <option value="Ranger">Ranger</option>
+                        <option value="Rogue">Rogue</option>
+                        <option value="Sorcerer">Sorcerer</option>
+                        <option value="Wizard">Wizard</option>
+                    </Input>
+                    <Input type='textarea' onChange={(e) => setAppearance(e.target.value)} value={appearance} placeholder="Appearance" />
+                    <Input type='textarea' onChange={(e) => setPersonality(e.target.value)} value={personality} placeholder="Personality" />
+                    <Input type='textarea' onChange={(e) => setDescription(e.target.value)} value={description} placeholder="Description" />
+                    <Input type='textarea' onChange={(e) => setBackground(e.target.value)} value={background} placeholder="Background" />
+                    <Input onChange={(e) => setCampaignName(e.target.value)} value={campaignName} placeholder="Campaign Name" />
                     <br />
                     <button type='submit'>Submit</button>
-                </form>
+                </Form>
                 <div id="feedback">
 
                 </div>
