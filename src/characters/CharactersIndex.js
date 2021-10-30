@@ -8,13 +8,12 @@ const Characters = (props) => {
 
     const getMyCharacters = () => {
         console.log("GetMyCharacters Function Called");
-        const accessToken = localStorage.getItem("SessionToken");
         
         fetch(`http://localhost:3000/character/mine`, {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json",
-                "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzUsImlhdCI6MTYzNTYwNjIyNSwiZXhwIjoxNjM1NjkyNjI1fQ.uqjlHxOSXeQca_3d2aPdhDBQpmGgGSfREupQHBDd_To"
+                "Authorization": props.sessionToken
 
             })
         })
@@ -40,7 +39,7 @@ const Characters = (props) => {
         {/* {createPie ? <CreatePie setCreatePie={setCreatePie} sessionToken={props.sessionToken}/> 
         : null}
         {!createPie ? <button onClick={buttonHandler}>Create Pie!</button> : null} */}
-            <DisplayCharacter char={char} getMyCharacters={getMyCharacters}/>
+            <DisplayCharacter sessionToken={props.sessionToken} char={char} getMyCharacters={getMyCharacters}/>
         </>
     )
 }

@@ -4,7 +4,7 @@ import Radium from "radium";
 
 import Characters from "../characters/CharactersIndex";
 
-const Home = () => {
+const Home = (props) => {
 
     return(
         <div className="main">
@@ -13,7 +13,7 @@ const Home = () => {
                 <p>Create/Manage your characters.</p>
                 <hr />
                 <div id="characters">
-                    <Characters />   
+                    <Characters sessionToken={props.sessionToken}/>   
             </div>
         </div>
     </div>

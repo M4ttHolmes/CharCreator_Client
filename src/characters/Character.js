@@ -1,5 +1,4 @@
 import React from "react";
-import CreateCharacter from "./CharacterCreate";
 
 const DisplayCharacter = (props) => {
 // Delete Character
@@ -8,14 +7,12 @@ const DisplayCharacter = (props) => {
         console.log(charId);
 
         const fetch_url = `http://localhost:3000/character/${charId}`;
-        //const accessToken = localStorage.getItem("SessionToken");
 
         fetch(fetch_url, {
             method: "DELETE",
             headers: new Headers({
                 "Content-Type": "application/json",
-                "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzUsImlhdCI6MTYzNTYwNjIyNSwiZXhwIjoxNjM1NjkyNjI1fQ.uqjlHxOSXeQca_3d2aPdhDBQpmGgGSfREupQHBDd_To"
-                // "Authorization": accessToken
+                "Authorization": props.sessionToken
               
             })
         })
