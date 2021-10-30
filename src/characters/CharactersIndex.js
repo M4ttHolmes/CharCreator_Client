@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import DisplayCharacter from "./Character"
 import CreateCharacter from "./CharacterCreate";
 
+
 const Characters = (props) => {
     const [char, setChar] = useState([]);
     //const [createChar, setCreateChar] = useState(false);
@@ -14,7 +15,7 @@ const Characters = (props) => {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json",
-                "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzUsImlhdCI6MTYzNTYwNjIyNSwiZXhwIjoxNjM1NjkyNjI1fQ.uqjlHxOSXeQca_3d2aPdhDBQpmGgGSfREupQHBDd_To"
+                "Authorization": props.sessionToken
 
             })
         })
