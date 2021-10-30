@@ -12,7 +12,7 @@ const Sidebar = (props) => {
                     <li><Link to="/home"><button className="navButton" color="danger">Home</button></Link></li>
                     <li><Link to="/create"><button className="navButton" color="danger">Create Character</button></Link></li>
                     <li><Link to="/search"><button className="navButton" color="danger">Search</button></Link></li>
-                    <li><button className="navButton" color="warning" onClick={props.clearLocalStorage}>Logout</button></li>
+                    <li><Link to="/"><button className="navButton" color="warning" onClick={props.clearLocalStorage}>Logout</button></Link></li>
                 </ul>
             </div>
             <div className="sidebar-route">

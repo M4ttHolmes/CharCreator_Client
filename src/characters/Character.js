@@ -1,6 +1,12 @@
 import React from "react";
 
 const DisplayCharacter = (props) => {
+// Edit Character
+    const editCharacter = (charId) => {
+        
+
+    }
+
 // Delete Character
     const deleteCharacter = (charId) => {
         console.log("deleteCharacter Function Called");
