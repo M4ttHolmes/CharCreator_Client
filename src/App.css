@@ -1,6 +1,5 @@
 
 body {
-  padding: 15px;
   background-color: white;
   font: Belleza;
 }
@@ -8,7 +7,6 @@ body {
 footer {
   background-color: #53565A;
   color: white;
-  margin-top: 10px;
 }
 
 footer p {
@@ -32,7 +30,6 @@ footer p {
 .sidebar {
   display: flex;
   background-color: #53565A;
-  margin-top: 10px;
 }
 
 ul {
@@ -52,13 +49,20 @@ ul {
   padding: 0;
 }
 
+.sidebar-list li{
+  margin-top: 25px;
+}
+
+.navButton {
+  width: 100%;
+}
+
 .sidebar-route {
   flex: 1;
   padding: "00px";
 }
 
 .header {
-  margin-top: 0.5em !important;
   padding-left: 0.8em;
   padding-right: 0.8em;
   text-align: center;

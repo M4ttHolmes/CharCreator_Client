@@ -28,7 +28,7 @@ const Search = (props) => {
                 
                 display.appendChild(header);
                 header.textContent = "No one has made a character yet...";
-                header.setAttribute("class", "noPosts")
+                header.setAttribute("class", "noChars")
             } else {
 
                 for (let i = 0; i < data.length; i++) {
@@ -113,7 +113,7 @@ const Search = (props) => {
                 
                 display.appendChild(header);
                 header.textContent = "No one has made a character yet...";
-                header.setAttribute("class", "noPosts")
+                header.setAttribute("class", "noChars")
             } else {
 
                 for (let i = 0; i < data.length; i++) {
