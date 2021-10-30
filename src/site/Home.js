@@ -13,7 +13,7 @@ const Home = () => {
                 <p>Create/Manage your characters.</p>
                 <hr />
                 <div id="characters">
-                    <Characters />
+                    <Characters />   
             </div>
         </div>
     </div>
