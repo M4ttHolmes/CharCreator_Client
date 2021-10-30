@@ -30,7 +30,7 @@ const CreateCharacter = (props) => {
             }),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJtYXR0QGVtYWlsLmNvbSIsImlhdCI6MTYzNTQ1MjkzNCwiZXhwIjoxNjM1NTM5MzM0fQ.Effj0rUc03iEaENkXPR38bPdZ7Qbd-MLGnsgXefa8BE"
+                'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjM1NTQyMzE0LCJleHAiOjE2MzU2Mjg3MTR9.6REeRD5MaWEXAzXedSibhpcyesd80x8KK3TS0g9Ctn8"
                 // 'Authorization': props.sessionToken
             })
         })
