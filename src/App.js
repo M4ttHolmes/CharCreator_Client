@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css"
 import './App.css';
 import Auth from './auth/Auth'
 
+import Footer from "./site/Footer";
 import Header from "./site/Header";
 import Sidebar from "./site/Sidebar";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -15,6 +16,7 @@ function App() {
       <Router>
         <Sidebar />
       </Router>
+      <Footer />
     </div>
   );
 }

@@ -14,8 +14,9 @@ const DisplayCharacter = (props) => {
             method: "DELETE",
             headers: new Headers({
                 "Content-Type": "application/json",
-                "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM1NjE5MTQ2LCJleHAiOjE2MzU3MDU1NDZ9.KYOfRaG8ny8x5gfoA4692n49H94Jm4oYevOKcEKpFMU"
-
+                "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjM1NTQyMzE0LCJleHAiOjE2MzU2Mjg3MTR9.6REeRD5MaWEXAzXedSibhpcyesd80x8KK3TS0g9Ctn8"
+                // "Authorization": accessToken
+              
             })
         })
             .then(response => response.json())
