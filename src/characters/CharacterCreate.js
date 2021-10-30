@@ -17,7 +17,7 @@ const CreateCharacter = (props) => {
         let url = 'http://localhost:3000/character/create';
         fetch(url, {
             method: 'POST',
-            body: JSON.stringify({
+            body: JSON.stringify({character: {
                 name: name,
                 appearance: appearance,
                 personality: personality,
@@ -27,11 +27,11 @@ const CreateCharacter = (props) => {
                 charClass: charClass,
                 alignment: alignment,
                 campaignName: campaignName
-            }),
+            }}),
             headers: new Headers({
                 'Content-Type': 'application/json',
                 // 'Authorization': props.sessionToken
-                'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM1NTQxMTUwLCJleHAiOjE2MzU2Mjc1NTB9.cS1-p-wOTQ0oQI4QBhzP8lql4g0bS-MS0dXGYcJxzT8"
+                'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM1NjE5MTQ2LCJleHAiOjE2MzU3MDU1NDZ9.KYOfRaG8ny8x5gfoA4692n49H94Jm4oYevOKcEKpFMU"
             })
         })
         .then(response => response.json())

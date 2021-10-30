@@ -1,5 +1,5 @@
 import React from "react";
-import CreateCharacter from "./CharacterCreate";
+
 
 const DisplayCharacter = (props) => {
 // Delete Character
@@ -14,7 +14,7 @@ const DisplayCharacter = (props) => {
             method: "DELETE",
             headers: new Headers({
                 "Content-Type": "application/json",
-                "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM1NTQxMTUwLCJleHAiOjE2MzU2Mjc1NTB9.cS1-p-wOTQ0oQI4QBhzP8lql4g0bS-MS0dXGYcJxzT8"
+                "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM1NjE5MTQ2LCJleHAiOjE2MzU3MDU1NDZ9.KYOfRaG8ny8x5gfoA4692n49H94Jm4oYevOKcEKpFMU"
 
             })
         })
