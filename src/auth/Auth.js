@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Radium from 'radium';
 import backgroundImage from "../assets/DDCC.jpg"
+import { useHistory } from 'react-router';
 
 const styles = {
     
@@ -15,6 +16,9 @@ const styles = {
 }
 
 const Auth = (props) => {
+    let history = useHistory();
+
+    history.push('/home')
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -88,7 +92,7 @@ const handleSubmit = event => {
         })
     })
     .then(response => response.json())
-    .then(json => console.log(json))
+    .then(json => props.updateLocalStorage(json.token))
     .catch(err => console.log(err))
 }
 
