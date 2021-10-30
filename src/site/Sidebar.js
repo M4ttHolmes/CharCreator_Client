@@ -9,9 +9,10 @@ const Sidebar = () => {
         <div className="sidebar">
             <div className="sidebar-list-styling">
                 <ul className="sidebar-list list-unstyled">
-                    <li><Link to="/home"><Button className="navButton" color="danger">Home</Button></Link></li>
-                    <li><Link to="/create"><Button className="navButton" color="danger">Create Character</Button></Link></li>
-                    <li><Link to="/search"><Button className="navButton" color="danger">Search</Button></Link></li>
+                    <li><Link to="/home"><button className="navButton" color="danger">Home</button></Link></li>
+                    <li><Link to="/create"><button className="navButton" color="danger">Create Character</button></Link></li>
+                    <li><Link to="/search"><button className="navButton" color="danger">Search</button></Link></li>
+                    <li><Link to="/"><button className="navButton" color="warning">Logout</button></Link></li>
                 </ul>
             </div>
             <div className="sidebar-route">
