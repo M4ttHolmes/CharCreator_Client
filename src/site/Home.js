@@ -17,7 +17,7 @@ const Home = () => {
             </div>
         </div>
     </div>
-    );
+    )
 };
 
 export default Radium(Home);
