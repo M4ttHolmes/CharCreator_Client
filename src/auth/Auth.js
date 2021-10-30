@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Radium from 'radium';
 import backgroundImage from "../assets/DDCC.jpg"
+import { useHistory } from 'react-router';
 
 const styles = {
     
@@ -15,6 +16,9 @@ const styles = {
 }
 
 const Auth = (props) => {
+    let history = useHistory();
+
+    history.push('/home')
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -44,15 +48,15 @@ const signupFields = () => !login ?
     <div>
         <label htmlFor="username">Username:</label>
         <br/>
-        <input type='text' id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <input required type='text' id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
         <br/>
         <label htmlFor="firstName">First Name:</label>
         <br/>
-        <input type='text' id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+        <input required type='text' id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
         <br/>
-        <label htmlFor="lastName">Last Name:</label>
+        <label  required htmlFor="lastName">Last Name:</label>
         <br/>
-        <input type='text' id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+        <input required type='text' id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} />
     </div>
 ) : null;
 
@@ -88,7 +92,7 @@ const handleSubmit = event => {
         })
     })
     .then(response => response.json())
-    .then(json => console.log(json))
+    .then(json => props.updateLocalStorage(json.token))
     .catch(err => console.log(err))
 }
 
@@ -101,11 +105,11 @@ const handleSubmit = event => {
                 {signupFields()}
                 <label htmlFor="email">Email:</label>
                 <br/>
-                <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input required type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <br/>
                 <label htmlFor="password">Password:</label>
                 <br/>
-                <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input required type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <br/>
                 <br/>
                 <button type="submit" onClick={handleSubmit}>Submit </button>
