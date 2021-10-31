@@ -156,6 +156,7 @@ ul {
 }
 
 .editBtn {
+  color: white;
   font-style: 0.8em;
   margin-right: 0.5em;
   padding: 0.3em;
@@ -167,11 +168,30 @@ ul {
   background-color: #5a5a5a;
 }
 
+.btn-warning:active{
+  background-color: #444444;
+  border-color: #444444;
+  box-shadow: 0 0 0 0.25rem #44444480;
+}
+
+.btn-warning:focus {
+  color: white;
+  background-color: #444444;
+  border-color: #444444;
+  box-shadow: 0 0 0 0.25rem #44444480;
+}
+
 .deleteBtn {
   font-style: 0.8em;
   margin-right: 0.5em;
   padding: 0.3em;
   float: right;
+}
+
+.createForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #updatedEntry {
@@ -194,13 +214,13 @@ ul {
 }
 
 .modal-header {
-  background-color: lightgray;
+  background-color: #9d0a0e;
 }
 
 .modal-title {
-  color: #17a2b8;
+  color: white;
 }
 
 .modal-body {
-  background-color: whitesmoke;
+  background-color: #e7e7db;
 }

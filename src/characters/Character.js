@@ -1,12 +1,7 @@
-import React from "react";
-import { Row } from "reactstrap";
+import React, { useState, useEffect } from "react";
+import { Row } from 'reactstrap';
 
 const DisplayCharacter = (props) => {
-// Edit Character
-    const editCharacter = (charId) => {
-        
-
-    }
 
 // Delete Character
     const deleteCharacter = (charId) => {
@@ -48,7 +43,7 @@ const DisplayCharacter = (props) => {
                             <p className="card-text"><strong>Description:</strong> {char.description}</p>
                             <p className="card-text"><strong>Personality:</strong> {char.personality}</p>
                             <p className="card-text"><strong>Background:</strong> {char.background}</p>
-                            <button className="btn btn-warning editBtn" type="button">Edit Character</button>
+                            <button className="btn btn-warning editBtn" type="button" onClick={() => {props.editUpdateCharacter(char); props.updateOn()}}>Edit Character</button>
                             <button className="btn btn-danger deleteBtn" type="button" onClick={() => deleteCharacter(char.id)}>Delete Character</button>
                         </div>
                     </div>

@@ -129,7 +129,6 @@ const Search = (props) => {
                     let para4 = document.createElement("p");
 
                     let current = data[i];
-                    let count = data.length;
                     
                     header.textContent = current.name;
                     subtitle1.textContent = `${current.alignment} ${current.race} ${current.charClass}`;
