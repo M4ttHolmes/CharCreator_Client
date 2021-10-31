@@ -174,18 +174,18 @@ const Search = (props) => {
                 <h1>Search Characters</h1>
 
                 <div style={{float: "left"}}>
-                    <Button color="info" onClick={getAllCharacters}>View All Characters</Button>
+                    <Button color="danger" onClick={getAllCharacters}>View All Characters</Button>
                 </div>
                 <div style={{float: "right"}}> 
                     <input id="searchBar" type="text" placeholder="Search" style={{width: "250px"}} />
-                    <Button color="info" onClick={getByCampaign}>Search by Campaign</Button>
+                    <Button color="danger" onClick={getByCampaign}>Search by Campaign</Button>
                 </div>
                 <br />
                 <br />
                 <hr />
-                <div id="characters">
+                <Row id="characters">
 
-                </div>
+                </Row>
             </div>
         </div>
     )
