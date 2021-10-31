@@ -3,16 +3,19 @@ import { Button } from "reactstrap"
 import Home from "./Home";
 import Search from "./Search"
 import CreateCharacter from "../characters/CharacterCreate";
+import Ampersand from "../assets/ampersand.png"
 
 const Sidebar = (props) => {
     return(
         <div className="sidebar">
             <div className="sidebar-list-styling">
+                <img alt="dnd-ampersand" id="ampersand" src={Ampersand}/> 
+                <hr />
                 <ul className="sidebar-list list-unstyled">
-                    <li><Link to="/home"><button className="navButton" color="danger">Home</button></Link></li>
-                    <li><Link to="/create"><button className="navButton" color="danger">Create Character</button></Link></li>
-                    <li><Link to="/search"><button className="navButton" color="danger">Search</button></Link></li>
-                    <li><button className="navButton" color="warning" onClick={props.clearLocalStorage}>Logout</button></li>
+                    <li><Link to="/home"><Button className="navButton" color="danger" outline>Home</Button></Link></li>
+                    <li><Link to="/create"><Button className="navButton" color="danger" outline>Create Character</Button></Link></li>
+                    <li><Link to="/search"><Button className="navButton" color="danger" outline>Search</Button></Link></li>
+                    <li><Link to="/"><Button className="navButton" color="warning" outline onClick={props.clearLocalStorage}>Logout</Button></Link></li>
                 </ul>
             </div>
             <div className="sidebar-route">
