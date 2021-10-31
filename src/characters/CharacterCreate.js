@@ -66,10 +66,10 @@ const CreateCharacter = (props) => {
             let url = "https://api.namefake.com/english-united-states/random/"
             fetch(url, {
                 method: "GET",
-                mode: "no-cors",
-                headers: {
+                //mode: "no-cors",
+                headers: new Headers({
                 "Content-Type": "application/json",
-            }
+            })
         })
     
             .then(res => res.json())
