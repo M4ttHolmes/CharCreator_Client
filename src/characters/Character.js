@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Row } from 'reactstrap';
+import React from "react";
+import { Row, Button, Card, CardBody, CardText, CardSubtitle } from 'reactstrap';
 
 const DisplayCharacter = (props) => {
 
-// Delete Character
+    // Delete Character
     const deleteCharacter = (charId) => {
         console.log("deleteCharacter Function Called");
         console.log(charId);
@@ -34,19 +34,19 @@ const DisplayCharacter = (props) => {
             <h1>My Characters ({props.char.length}):</h1> 
             {props.char.map((char, key) => {
                 return(
-                    <div className="card" key={key}>
-                        <div className="card-body">
+                    <Card key={key}>
+                        <CardBody>
                             <h5 className="card-title">{char.name}</h5>
-                            <h6 className="card-subtitle mb-2 text-muted">{char.alignment} / {char.race} / {char.charClass}</h6>
-                            <h6 className="card-subtitle mb-2 text-muted">Campaign: {char.campaignName}</h6>
-                            <p className="card-text"><strong>Appearance:</strong> {char.appearance}</p>
-                            <p className="card-text"><strong>Description:</strong> {char.description}</p>
-                            <p className="card-text"><strong>Personality:</strong> {char.personality}</p>
-                            <p className="card-text"><strong>Background:</strong> {char.background}</p>
-                            <button className="btn btn-warning editBtn" type="button" onClick={() => {props.editUpdateCharacter(char); props.updateOn()}}>Edit Character</button>
-                            <button className="btn btn-danger deleteBtn" type="button" onClick={() => deleteCharacter(char.id)}>Delete Character</button>
-                        </div>
-                    </div>
+                            <CardSubtitle className="mb-2 text-muted">{char.alignment} / {char.race} / {char.charClass}</CardSubtitle>
+                            <CardSubtitle className="mb-2 text-muted">Campaign: {char.campaignName}</CardSubtitle>
+                            <CardText><strong>Appearance:</strong> {char.appearance}</CardText>
+                            <CardText><strong>Description:</strong> {char.description}</CardText>
+                            <CardText><strong>Personality:</strong> {char.personality}</CardText>
+                            <CardText><strong>Background:</strong> {char.background}</CardText>
+                            <Button className="btn btn-warning editBtn" type="button" onClick={() => {props.editUpdateCharacter(char); props.updateOn()}}>Edit Character</Button>
+                            <Button className="btn btn-danger deleteBtn" type="button" onClick={() => deleteCharacter(char.id)}>Delete Character</Button>
+                        </CardBody>
+                    </Card>
                 )
             })}
         </Row>

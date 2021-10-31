@@ -1,4 +1,3 @@
-
 body {
   background-color: #e7e7db;
   font: Belleza;
@@ -13,12 +12,6 @@ footer p {
   margin-top: 0.8em !important;
   margin-left: 1.5em;
 }
-
-/* #characters {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-} */
 
 #row {
   width: 100%;
@@ -80,13 +73,9 @@ ul {
   height: 45px; 
 }
 
-.btn {
-  color: white;
+.navButton :focus {
   border: none;
-}
-
-.btn-danger {
-  background-color: #9d0a0e;
+  background-color: black;
 }
 
 .sidebar-route {
@@ -125,22 +114,17 @@ ul {
   margin-right: 5px;
 }
 
-#postBtn {
+/* #postBtn {
   width: 6em;
-}
+} */
 
-.card {
-  width: 40%;
-  margin: 2rem;
-}
-
-#mineBtn {
+/* #mineBtn {
   width: 9rem;
-}
+} */
 
-#allBtn {
+/* #allBtn {
   width: 9rem;
-}
+} */
 
 #searchBtn {
   width: 5rem;
@@ -151,8 +135,27 @@ ul {
   width: 9rem;
 }
 
+
+.card {
+  width: 40%;
+  margin: 2rem;
+} 
+
 .card-title {
   color: #9d0a0e;
+}
+
+.btn {
+  color: white;
+  border: none;
+}
+
+.deleteBtn {
+  font-style: 0.8em;
+  margin-right: 0.5em;
+  padding: 0.3em;
+  float: right;
+  background-color: #9d0a0e;
 }
 
 .editBtn {
