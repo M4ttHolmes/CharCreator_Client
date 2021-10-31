@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const DisplayCharacter = (props) => {
 // Delete Character
     const deleteCharacter = (charId) => {
@@ -8,14 +7,12 @@ const DisplayCharacter = (props) => {
         console.log(charId);
 
         const fetch_url = `http://localhost:3000/character/${charId}`;
-        //const accessToken = localStorage.getItem("SessionToken");
 
         fetch(fetch_url, {
             method: "DELETE",
             headers: new Headers({
                 "Content-Type": "application/json",
-                "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM1NjE5MTQ2LCJleHAiOjE2MzU3MDU1NDZ9.KYOfRaG8ny8x5gfoA4692n49H94Jm4oYevOKcEKpFMU"
-                // "Authorization": accessToken
+                "Authorization": props.sessionToken
               
             })
         })
@@ -44,7 +41,7 @@ const DisplayCharacter = (props) => {
                             <p className="card-text">Description: {char.description}</p>
                             <p className="card-text">Personality: {char.personality}</p>
                             <p className="card-text">Background: {char.background}</p>
-                            <button className="btn btn-dark editBtn" type="button">Edit Character</button>
+                            <button className="btn btn-dark editBtn" type="button" onClick={() => {props.editUpdateCharacter(char.id); props.updateOn()}}>Edit Character</button>
                             <button className="btn btn-dark deleteBtn" type="button" onClick={() => deleteCharacter(char.id)}>Delete Character</button>
                         </div>
                     </div>

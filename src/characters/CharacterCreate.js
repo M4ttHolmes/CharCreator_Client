@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Button, Form, FormGroup, Label, Input} from "reactstrap";
 
-const CreateCharacter = () => {
+const CreateCharacter = (props) => {
     const [name, setName] = useState("");
     const [appearance, setAppearance] = useState("");
     const [personality, setPersonality] = useState("");
@@ -33,8 +33,7 @@ const CreateCharacter = () => {
             }),
             headers: new Headers({
                 "Content-Type": "application/json",
-                'Authorization': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM1NjE5MTQ2LCJleHAiOjE2MzU3MDU1NDZ9.KYOfRaG8ny8x5gfoA4692n49H94Jm4oYevOKcEKpFMU",
-                // "Authorization": props.sessionToken
+                "Authorization": props.sessionToken
 
             })
         })

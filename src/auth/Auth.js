@@ -92,7 +92,7 @@ const handleSubmit = event => {
         })
     })
     .then(response => response.json())
-    .then(json => props.updateLocalStorage(json.token))
+    .then(json => props.updateLocalStorage(json.sessionToken))
     .catch(err => console.log(err))
 }
 

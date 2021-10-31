@@ -11,7 +11,6 @@ import Home from "./site/Home";
 
 function App() {
   const [sessionToken, setSessionToken] = useState(undefined);
-
   useEffect(() => {
     if(localStorage.getItem('token')){
       setSessionToken(localStorage.getItem('token'))
@@ -30,8 +29,9 @@ function App() {
 
   const viewConductor = () => {
     return sessionToken !== undefined ?
-    <Sidebar /> : <Auth updateLocalStorage={updateLocalStorage}/>
+    <Sidebar sessionToken={sessionToken} clearLocalStorage={clearLocalStorage} /> : <Auth updateLocalStorage={updateLocalStorage}/>
   }
+
   return (
     <div className="App">
       <Router>
