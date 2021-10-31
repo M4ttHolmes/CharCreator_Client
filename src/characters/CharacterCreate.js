@@ -83,8 +83,7 @@ const CreateCharacter = (props) => {
         <div className="main">
             <div className="mainDiv">
                 <h1>Create Character</h1>
-                <p>Please enter the details of your new character. You must include a name for your character, but all other fields can be filled in later.</p>
-                <Form onSubmit={createCharacter}>
+                <Form className="createForm" onSubmit={createCharacter}>
                     <Input required onChange={(e) => setName(e.target.value)} value={name} placeholder="*Name" />
                     <button type="button" onClick={() => nameRandomizer()}>Randomize Your Name</button>
                     <Input type="select" onChange={(e) => setAlignment(e.target.value)} value={alignment} placeholder="Alignment">
@@ -134,7 +133,7 @@ const CreateCharacter = (props) => {
                     <Input type='textarea' onChange={(e) => setBackground(e.target.value)} value={background} placeholder="Background" />
                     <Input onChange={(e) => setCampaignName(e.target.value)} value={campaignName} placeholder="Campaign Name" />
                     <br />
-                    <button type='submit'>Submit</button>
+                    <Button class="editBtn" type='submit'>Create!</Button>
                 </Form>
                 <div id="feedback">
 
