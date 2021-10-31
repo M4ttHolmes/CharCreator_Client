@@ -36,7 +36,7 @@ function App() {
       <Router>
       {viewConductor()}
       </Router>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
