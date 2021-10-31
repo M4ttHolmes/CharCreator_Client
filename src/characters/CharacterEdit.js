@@ -12,9 +12,9 @@ const UpdateCharacter = (props) => {
     const [editAlignment, setEditAlignment] = useState(props.updatedCharacter.alignment);
     const [editCampaignName, setEditCampaignName] = useState(props.updatedCharacter.campaignName);
 
-    const characterUpdate = (event) => {
+    const characterUpdate = (event, character) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/character/update/${props.updatedCharacter.id}`, {
+        fetch(`http://localhost:3000/character/update/${props.updatedCharacter.characterId}`, {
             method: "PUT",
             body: JSON.stringify({character: {
                 name: editName,

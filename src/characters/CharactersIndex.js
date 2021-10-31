@@ -30,9 +30,9 @@ const Characters = (props) => {
         })
         .catch(err => console.log(err))
     }
-    const editUpdateCharacter = (characterId) => {
-        setUpdatedCharacter(characterId);
-        console.log(characterId)
+    const editUpdateCharacter = (char) => {
+        setUpdatedCharacter(char);
+        console.log(char)
     }
     const updateOn = () => {
         setUpdateActive(true);
