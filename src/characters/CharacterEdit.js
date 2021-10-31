@@ -14,6 +14,7 @@ const UpdateCharacter = (props) => {
 
     const characterUpdate = (event) => {
         event.preventDefault();
+        console.log(props);
         fetch(`http://localhost:3000/character/update/${props.updatedCharacter.id}`, {
             method: "PUT",
             body: JSON.stringify({character: {
@@ -97,25 +98,25 @@ const UpdateCharacter = (props) => {
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="appearance">Edit Appearance</Label>
-                        <Input name="appearance" value={editAppearance} onChange={(e) => setEditAppearance(e.target.value)}/>
+                        <Input name="appearance" type="textarea" value={editAppearance} onChange={(e) => setEditAppearance(e.target.value)}/>
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="personality">Edit Personality</Label>
-                        <Input name="personality" value={editPersonality} onChange={(e) => setEditPersonality(e.target.value)}/>
+                        <Input name="personality" type="textarea" value={editPersonality} onChange={(e) => setEditPersonality(e.target.value)}/>
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="description">Edit Description</Label>
-                        <Input name="description" value={editDescription} onChange={(e) => setEditDescription(e.target.value)}/>
+                        <Input name="description" type="textarea" value={editDescription} onChange={(e) => setEditDescription(e.target.value)}/>
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="background">Edit Background</Label>
-                        <Input name="background" value={editBackground} onChange={(e) => setEditBackground(e.target.value)}/>
+                        <Input name="background" type="textarea" value={editBackground} onChange={(e) => setEditBackground(e.target.value)}/>
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="campaignName">Edit Campaign Name</Label>
                         <Input name="campaignName" value={editCampaignName} onChange={(e) => setEditCampaignName(e.target.value)}/>
                     </FormGroup>
-                    <Button type="submit">Update Your Character</Button>
+                    <Button className="editBtn" type="submit">Update Your Character</Button>
                 </Form>
             </ModalBody>
         </Modal>
