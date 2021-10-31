@@ -11,6 +11,7 @@ const CreateCharacter = (props) => {
     const [charClass, setCharClass] = useState("");
     const [alignment, setAlignment] = useState("");
     const [campaignName, setCampaignName] = useState("");
+    const [randomName, setRandomName] = useState("");
 
     const createCharacter = (e) => {
         e.preventDefault();
@@ -61,6 +62,22 @@ const CreateCharacter = (props) => {
         })
         .catch(err => console.log(err))
     }
+        const nameRandomizer = () => {
+            let url = "https://api.namefake.com/english-united-states/random/"
+            fetch(url, {
+                method: "GET",
+                mode: "no-cors",
+                headers: {
+                "Content-Type": "application/json",
+            }
+        })
+    
+            .then(res => res.json())
+            .then(json => {
+                console.log(json)
+            })
+            .catch(err => console.log(err))
+    }
 
     return (
         <div className="main">
@@ -68,6 +85,7 @@ const CreateCharacter = (props) => {
                 <h1>Create Character</h1>
                 <Form className="createForm" onSubmit={createCharacter}>
                     <Input required onChange={(e) => setName(e.target.value)} value={name} placeholder="*Name" />
+                    <button type="button" onClick={() => nameRandomizer()}>Randomize Your Name</button>
                     <Input type="select" onChange={(e) => setAlignment(e.target.value)} value={alignment} placeholder="Alignment">
                         <option hidden>--Choose an Alignment--</option>
                         <option value="Lawful Good">Lawful Good</option>
