@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import DisplayCharacter from "./Character"
 import CreateCharacter from "./CharacterCreate";
+import UpdateCharacter from "./CharacterEdit"
+
 
 const Characters = (props) => {
     const [char, setChar] = useState([]);
-    // const [createChar, setCreateChar] = useState(false);
+    const [updatedCharacter, setUpdatedCharacter] = useState({})
+    const [updateActive, setUpdateActive] = useState(false);
+    //const [createChar, setCreateChar] = useState(false);
 
     const getMyCharacters = () => {
         console.log("GetMyCharacters Function Called");
+        const accessToken = localStorage.getItem("SessionToken");
         
         fetch(`http://localhost:3000/character/mine`, {
             method: "GET",
@@ -25,8 +30,17 @@ const Characters = (props) => {
         })
         .catch(err => console.log(err))
     }
-
-    useEffect(() => {
+    const editUpdateCharacter = (characterId) => {
+        setUpdatedCharacter(characterId);
+        console.log(characterId)
+    }
+    const updateOn = () => {
+        setUpdateActive(true);
+    }
+    const updateOff = () => {
+        setUpdateActive(false);
+    }
+        useEffect(() => {
         getMyCharacters();
     }, [])
 
@@ -35,13 +49,18 @@ const Characters = (props) => {
     // }
 
     return(
+        
         <>
+       
         {/* {createPie ? <CreatePie setCreatePie={setCreatePie} sessionToken={props.sessionToken}/> 
         : null}
         {!createPie ? <button onClick={buttonHandler}>Create Pie!</button> : null} */}
-            <DisplayCharacter sessionToken={props.sessionToken} char={char} getMyCharacters={getMyCharacters}/>
+            
+            <DisplayCharacter char={char} getMyCharacters={getMyCharacters} editUpdateCharacter={editUpdateCharacter} updateOn={updateOn} sessionToken={props.sessionToken}/>
+            {updateActive ? <UpdateCharacter updatedCharacter={updatedCharacter} updateOff={updateOff} sessionToken={props.sessionToken} getMyCharacters={getMyCharacters}/> : <></>}
         </>
     )
+ 
 }
 
 
