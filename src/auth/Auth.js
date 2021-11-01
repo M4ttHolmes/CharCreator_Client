@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Radium from 'radium';
-import backgroundImage from "../assets/DDCC.jpg"
-import { useHistory } from 'react-router';
+import './auth.css';
 
 const styles = {
     
@@ -9,9 +8,13 @@ const styles = {
         display: "table",
         width: "100%", 
         backgroundSize: "cover",
+        backgroundColor: "#e7e7db",
         textAlign: "center",
-        backgroundColor: "gray",
-        border: "solid"
+    },
+    
+    hr: {
+        width: "20%",
+        marginLeft: "40%",
     }
 }
 
@@ -26,6 +29,10 @@ const Auth = (props) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [login, setLogin] = useState(true);
+
+const logsignbut = () => {
+    return !login ? 'Go Back To Sign In' : 'Sign Up'
+}
 
 const title = () => {
     return !login ? 'Register A New User' : 'Sign In'
@@ -46,17 +53,17 @@ const loginToggle = (e) => {
 const signupFields = () => !login ?
 (
     <div>
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="username" id="userlabel">Username:</label>
         <br/>
-        <input required type='text' id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <input required type='text' id="username" placeholder="Create A Username" value={username} onChange={(e) => setUsername(e.target.value)} />
         <br/>
         <label htmlFor="firstName">First Name:</label>
         <br/>
-        <input required type='text' id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+        <input required type='text' id="firstName" placeholder="Your First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
         <br/>
         <label  required htmlFor="lastName">Last Name:</label>
         <br/>
-        <input required type='text' id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+        <input required type='text' id="lastName" placeholder="Your Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
     </div>
 ) : null;
 
@@ -101,20 +108,21 @@ const handleSubmit = event => {
     return (
         <div style={styles.login}>
             <form id="Login">
-                <button onClick={loginToggle}>Login / Signup Toggle</button>
+                <button className="btn-lg btn-danger btn-block" onClick={loginToggle}>{logsignbut()}</button>
                 <br/>
-                <h1>{title()}</h1>
-                {signupFields()}
+                <h1 class="display-1">{title()}</h1>
+                <hr style={styles.hr} />
                 <label htmlFor="email">Email:</label>
                 <br/>
-                <input required type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input required type="email" id="email" placeholder="Enter E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <br/>
                 <label htmlFor="password">Password:</label>
                 <br/>
-                <input required type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input required type="password" id="password" placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <br/>
+                {signupFields()}
                 <br/>
-                <button type="submit" onClick={handleSubmit}>Submit </button>
+                <button type="submit" className="btn-lg btn-dark btn-block" onClick={handleSubmit}>Submit </button>
             </form>
         </div>
     )
