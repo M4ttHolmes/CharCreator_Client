@@ -105,6 +105,7 @@ const handleSubmit = event => {
     .then(response => response.json())
     .then(json => {
         props.updateLocalStorage(json.sessionToken)
+        props.updateUserName(json.user.username)
     })
     .catch(err => console.log(err))
 }
