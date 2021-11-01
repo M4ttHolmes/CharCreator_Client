@@ -38,6 +38,10 @@ const title = () => {
     return !login ? 'Register A New User' : 'Sign In'
 }
 
+const submitBut = () => {
+    return !login ? 'Create User' : 'Login'
+}
+
 const loginToggle = (e) => {
     e.preventDefault();
 
@@ -122,10 +126,10 @@ const handleSubmit = event => {
                 <br/>
                 {signupFields()}
                 <br/>
-                <button type="submit" className="btn-lg btn-dark btn-block" onClick={handleSubmit}>Submit </button>
+                <button type="submit" className="btn-lg btn-dark btn-block" onClick={handleSubmit}>{submitBut()} </button>
             </form>
         </div>
     )
 }
 
-export default Auth;
+export default Radium(Auth);
