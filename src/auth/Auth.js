@@ -7,15 +7,17 @@ import "./auth.css"
 const styles = {
     
     login: {
+        position: "relative",
         backgroundSize: "cover",
-        backgroundColor: "rgba(231,231,219,0.6",
+        backgroundColor: "rgba(231, 231, 219, 0.6)",
         textAlign: "center",
         margin: "auto",
         width: "50%",
         border: "3px solid black",
         borderRadius: "12px",
         padding: "20px",
-        marginTop: "3%"
+        top: "50%",
+        transform: "translate(0, -50%)"
     },
 
     hr1: {
