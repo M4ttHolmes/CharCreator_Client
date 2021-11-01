@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Radium from 'radium';
 import '../App.css';
 import DDlogo from '../assets/DDlogo.png'
+import './AuthFormVal';
 
 const styles = {
     
@@ -119,7 +120,7 @@ const handleSubmit = event => {
                 <hr style={styles.hr2} />
                 <label htmlFor="email"><strong>Email:</strong></label>
                 <br/>
-                <input required type="email" id="email" placeholder="Ex: dragon@email.com" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input required type="email" id="email" value="email" placeholder="Ex: dragon@email.com" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <br/>
                 <label htmlFor="password"><strong>Password:</strong></label>
                 <br/>
