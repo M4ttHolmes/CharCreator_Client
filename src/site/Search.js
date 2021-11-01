@@ -1,5 +1,15 @@
 import React from "react";
 import Reactstrap, { Button, Row } from "reactstrap";
+import Party from "../assets/party.jpg"
+
+const styles =  {
+    headerImg: {
+        height: "220px",
+        width: "100%",
+        objectFit: "cover"
+    }
+
+}
 
 const Search = (props) => {
 
@@ -170,6 +180,8 @@ const Search = (props) => {
     return(
         <div className="main">
             <div className="mainDiv">
+            <img alt="dragon" style={styles.headerImg} src={Party} />
+                <hr />
                 <h1>Search Characters</h1>
 
                 <div style={{float: "left"}}>

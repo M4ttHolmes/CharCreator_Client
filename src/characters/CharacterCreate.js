@@ -1,5 +1,16 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Button, Form, FormGroup, Label, Input} from "reactstrap";
+import MagicBanner from "../assets/magic.jpg"
+
+const styles =  {
+    headerImg: {
+        height: "220px",
+        width: "100%",
+        objectFit: "cover"
+    }
+
+}
+
 
 const CreateCharacter = (props) => {
     const [name, setName] = useState("");
@@ -11,7 +22,8 @@ const CreateCharacter = (props) => {
     const [charClass, setCharClass] = useState("");
     const [alignment, setAlignment] = useState("");
     const [campaignName, setCampaignName] = useState("");
-    const [randomName, setRandomName] = useState("");
+    const [loginUsername, setLoginUsername] = useState();
+    
 
     const createCharacter = (e) => {
         e.preventDefault();
@@ -62,30 +74,49 @@ const CreateCharacter = (props) => {
         })
         .catch(err => console.log(err))
     }
-        const nameRandomizer = () => {
-            let url = "https://api.namefake.com/english-united-states/random/"
+    const NameRandomizer = () => {
+
+            // useEffect(() => {
+            let url = "https://randomuser.me/api/?inc=login"
             fetch(url, {
-                method: "GET",
-                mode: "no-cors",
-                headers: {
-                "Content-Type": "application/json",
-            }
+            //     method: "GET",
+            //     headers: {
+            //         "Content-Type": "application/json"
+                    
+            // }
+            
         })
-    
             .then(res => res.json())
-            .then(json => {
-                console.log(json)
+            
+            .then(data => {
+                const login = data.results[0].login.username
+                console.log(data.results[0].login.username)
+                const nameField = document.getElementById("nameField")
+                nameField.value = login
+
+                //console.log(login.username)
+
+
             })
             .catch(err => console.log(err))
-    }
+    //   }, [])
+}
 
     return (
         <div className="main">
             <div className="mainDiv">
+            <img alt="dragon" style={styles.headerImg} src={MagicBanner} />
+            <hr />
                 <h1>Create Character</h1>
+                <hr />
                 <Form className="createForm" onSubmit={createCharacter}>
-                    <Input required onChange={(e) => setName(e.target.value)} value={name} placeholder="*Name" />
-                    <button type="button" onClick={() => nameRandomizer()}>Randomize Your Name</button>
+                    <FormGroup>
+                    <Label htmlFor="name">Create Your Name</Label>
+                    <Input id="nameField" required onChange={(e) => setName(e.target.value)} value={name} placeholder="*Name" />
+                    <Button type="button" onClick={() => NameRandomizer()}>Randomize Your Name</Button>
+                    </FormGroup>
+                    <FormGroup>
+                    <Label htmlFor="alignment">Select Your Alignment</Label>
                     <Input type="select" onChange={(e) => setAlignment(e.target.value)} value={alignment} placeholder="Alignment">
                         <option hidden>--Choose an Alignment--</option>
                         <option value="Lawful Good">Lawful Good</option>
@@ -100,6 +131,9 @@ const CreateCharacter = (props) => {
                         <option value="Neutral Evil">Neutral Evil</option>
                         <option value="Chaotic Evil">Chaotic Evil</option>
                     </Input>
+                    </FormGroup>
+                    <FormGroup>
+                    <Label htmlFor="race">Select Your Race</Label>
                     <Input type='select' onChange={(e) => setRace(e.target.value)} value= {race} placeholder="Race">
                         <option hidden>--Choose a Race--</option>
                         <option value="Dwarf">Dwarf</option>
@@ -112,6 +146,9 @@ const CreateCharacter = (props) => {
                         <option value="Half-Orc">Half-Orc</option>
                         <option value="Tiefling">Tiefling</option>
                     </Input>
+                    </FormGroup>
+                    <FormGroup>
+                    <Label htmlFor="charClass">Select Your Character Class</Label>
                     <Input type='select' onChange={(e) => setCharClass(e.target.value)} value={charClass} placeholder="Character Class">
                         <option hidden>--Choose a Class--</option>
                         <option value="Artificer">Artificer</option>
@@ -127,11 +164,27 @@ const CreateCharacter = (props) => {
                         <option value="Sorcerer">Sorcerer</option>
                         <option value="Wizard">Wizard</option>
                     </Input>
+                    </FormGroup>
+                    <FormGroup>
+                    <Label htmlFor="appearance">Set an Appearance</Label>
                     <Input type='textarea' onChange={(e) => setAppearance(e.target.value)} value={appearance} placeholder="Appearance" />
+                    </FormGroup>
+                    <FormGroup>
+                    <Label htmlFor="personality">Set a Personality</Label>
                     <Input type='textarea' onChange={(e) => setPersonality(e.target.value)} value={personality} placeholder="Personality" />
+                    </FormGroup>
+                    <FormGroup>
+                    <Label htmlFor="description">Describe Your Character</Label>
                     <Input type='textarea' onChange={(e) => setDescription(e.target.value)} value={description} placeholder="Description" />
+                    </FormGroup>
+                    <FormGroup>
+                    <Label htmlFor="background">Set a Background</Label>
                     <Input type='textarea' onChange={(e) => setBackground(e.target.value)} value={background} placeholder="Background" />
+                    </FormGroup>
+                    <FormGroup>
+                    <Label htmlFor="campaign name">Create a Campaign Name</Label>
                     <Input onChange={(e) => setCampaignName(e.target.value)} value={campaignName} placeholder="Campaign Name" />
+                    </FormGroup>
                     <br />
                     <Button class="editBtn" type='submit'>Create!</Button>
                 </Form>
