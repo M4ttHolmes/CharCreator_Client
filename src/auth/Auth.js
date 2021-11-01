@@ -1,22 +1,35 @@
 import React, {useState} from 'react';
 import Radium from 'radium';
-import '../App.css';
+//import '../App.css';
 import DDlogo from '../assets/DDlogo.png'
+import "./auth.css"
 
 const styles = {
     
     login: {
-        display: "table", 
+        position: "relative",
         backgroundSize: "cover",
-        backgroundColor: "#e7e7db",
+        backgroundColor: "rgba(231, 231, 219, 0.6)",
         textAlign: "center",
-        margin: "auto"
+        margin: "auto",
+        width: "50%",
+        border: "3px solid black",
+        borderRadius: "12px",
+        padding: "20px",
+        top: "50%",
+        transform: "translate(0, -50%)"
     },
 
+    hr1: {
+        width: "50%",
+        marginLeft: "25%"
+    },
 
-    logo: {
-        border: "black"
-    }
+    hr2: {
+        width: "50%",
+        marginLeft: "25%"
+    },
+
 }
 
 const Auth = (props) => {
@@ -111,7 +124,8 @@ const handleSubmit = event => {
 }
 
     return (
-        <div style={styles.login}>
+        <div className="loginBackground">
+        <div style={styles.login} className="loginPage">
             <form id="Login">
                 <img style={styles.logo} src={DDlogo} alt="ddlogoauth" id="ddlogo"/>
                 <hr style={styles.hr1} />
@@ -119,7 +133,7 @@ const handleSubmit = event => {
                 <hr style={styles.hr2} />
                 <label htmlFor="email"><strong>Email:</strong></label>
                 <br/>
-                <input required type="email" id="email" placeholder="Ex: dragon@email.com" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input required type="email" id="email" value="email" placeholder="Ex: dragon@email.com" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <br/>
                 <label htmlFor="password"><strong>Password:</strong></label>
                 <br/>
@@ -132,6 +146,7 @@ const handleSubmit = event => {
                 <br/>
                 <button className="btn-lg btn-danger btn-block" onClick={loginToggle}>{logsignbut()}</button>
             </form>
+        </div>
         </div>
     )
 }
