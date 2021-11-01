@@ -1,5 +1,34 @@
 import React, {useEffect, useState} from "react";
 import {Button, Form, FormGroup, Label, Input} from "reactstrap";
+import MagicBanner from "../assets/magic.jpg"
+import Radium from 'radium'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+const styles =  {
+    headerImg: {
+        height: "220px",
+        width: "100%",
+        objectFit: "cover"
+    },
+    inputBox: {
+        width: "30em",
+        marginRight: "2em",
+        height: "2.2em"
+        
+    },
+    formFlex: {
+        display: "flex"
+    },
+    toCenter: {
+        marginLeft: "11.6em"
+    },
+    inputTextArea: {
+        width: "30em",
+        height: "5em",
+        marginRight: "2em"
+    }
+}
 
 
 const CreateCharacter = (props) => {
@@ -16,9 +45,9 @@ const CreateCharacter = (props) => {
     
 
     const createCharacter = (e) => {
+        // const notify = () => toast("Character Created")
         e.preventDefault();
         let url = "http://localhost:3000/character/create"
-
         fetch(url, {
             method: "POST",
             body: JSON.stringify({
@@ -63,6 +92,7 @@ const CreateCharacter = (props) => {
 
         })
         .catch(err => console.log(err))
+
     }
     const NameRandomizer = () => {
 
@@ -81,31 +111,38 @@ const CreateCharacter = (props) => {
             .then(data => {
                 const login = data.results[0].login.username
                 console.log(data.results[0].login.username)
+                setName(login)
                 const nameField = document.getElementById("nameField")
                 nameField.value = login
 
-                //console.log(login.username)
+                console.log(login.username)
 
 
             })
             .catch(err => console.log(err))
     //   }, [])
 }
+   
 
     return (
         <div className="main">
             <div className="mainDiv">
+            <img alt="dragon" style={styles.headerImg} src={MagicBanner} />
+            <hr />
                 <h1>Create Character</h1>
                 <hr />
                 <Form className="createForm" onSubmit={createCharacter}>
-                    <FormGroup>
+                    <FormGroup style={styles.toCenter}>
                     <Label htmlFor="name">Create Your Name</Label>
-                    <Input id="nameField" required onChange={(e) => setName(e.target.value)} value={name} placeholder="*Name" />
+                    <div style={styles.formFlex}>
+                    <Input style={styles.inputBox} required id="nameField" onChange={(e) => setName(e.target.value)} value={name} placeholder="*Name" />
+                    
                     <Button type="button" onClick={() => NameRandomizer()}>Randomize Your Name</Button>
+                    </div>
                     </FormGroup>
                     <FormGroup>
                     <Label htmlFor="alignment">Select Your Alignment</Label>
-                    <Input type="select" onChange={(e) => setAlignment(e.target.value)} value={alignment} placeholder="Alignment">
+                    <Input style={styles.inputBox} type="select" onChange={(e) => setAlignment(e.target.value)} value={alignment} placeholder="Alignment">
                         <option hidden>--Choose an Alignment--</option>
                         <option value="Lawful Good">Lawful Good</option>
                         <option value="Neutral Good">Neutral Good</option>
@@ -122,7 +159,7 @@ const CreateCharacter = (props) => {
                     </FormGroup>
                     <FormGroup>
                     <Label htmlFor="race">Select Your Race</Label>
-                    <Input type='select' onChange={(e) => setRace(e.target.value)} value= {race} placeholder="Race">
+                    <Input style={styles.inputBox} type='select' onChange={(e) => setRace(e.target.value)} value= {race} placeholder="Race">
                         <option hidden>--Choose a Race--</option>
                         <option value="Dwarf">Dwarf</option>
                         <option value="Elf">Elf</option>
@@ -137,7 +174,7 @@ const CreateCharacter = (props) => {
                     </FormGroup>
                     <FormGroup>
                     <Label htmlFor="charClass">Select Your Character Class</Label>
-                    <Input type='select' onChange={(e) => setCharClass(e.target.value)} value={charClass} placeholder="Character Class">
+                    <Input style={styles.inputBox} type='select' onChange={(e) => setCharClass(e.target.value)} value={charClass} placeholder="Character Class">
                         <option hidden>--Choose a Class--</option>
                         <option value="Artificer">Artificer</option>
                         <option value="Barbarian">Barbarian</option>
@@ -155,26 +192,29 @@ const CreateCharacter = (props) => {
                     </FormGroup>
                     <FormGroup>
                     <Label htmlFor="appearance">Set an Appearance</Label>
-                    <Input type='textarea' onChange={(e) => setAppearance(e.target.value)} value={appearance} placeholder="Appearance" />
+                    <Input style={styles.inputBox} type='textarea' onChange={(e) => setAppearance(e.target.value)} value={appearance} placeholder="Appearance" />
                     </FormGroup>
                     <FormGroup>
                     <Label htmlFor="personality">Set a Personality</Label>
-                    <Input type='textarea' onChange={(e) => setPersonality(e.target.value)} value={personality} placeholder="Personality" />
+                    <Input style={styles.inputTextArea} type='textarea' onChange={(e) => setPersonality(e.target.value)} value={personality} placeholder="Personality" />
                     </FormGroup>
                     <FormGroup>
                     <Label htmlFor="description">Describe Your Character</Label>
-                    <Input type='textarea' onChange={(e) => setDescription(e.target.value)} value={description} placeholder="Description" />
+                    <Input style={styles.inputTextArea} type='textarea' onChange={(e) => setDescription(e.target.value)} value={description} placeholder="Description" />
                     </FormGroup>
                     <FormGroup>
                     <Label htmlFor="background">Set a Background</Label>
-                    <Input type='textarea' onChange={(e) => setBackground(e.target.value)} value={background} placeholder="Background" />
+                    <Input style={styles.inputTextArea} type='textarea' onChange={(e) => setBackground(e.target.value)} value={background} placeholder="Background" />
                     </FormGroup>
                     <FormGroup>
                     <Label htmlFor="campaign name">Create a Campaign Name</Label>
-                    <Input onChange={(e) => setCampaignName(e.target.value)} value={campaignName} placeholder="Campaign Name" />
+                    <Input style={styles.inputBox} onChange={(e) => setCampaignName(e.target.value)} value={campaignName} placeholder="Campaign Name" />
                     </FormGroup>
                     <br />
+                    <div>
                     <Button class="editBtn" type='submit'>Create!</Button>
+                    <ToastContainer />
+                    </div>
                 </Form>
                 <div id="feedback">
 
@@ -184,4 +224,4 @@ const CreateCharacter = (props) => {
     )
 }
 
-export default CreateCharacter;
+export default Radium(CreateCharacter);

@@ -32,6 +32,7 @@ const DisplayCharacter = (props) => {
     return(
         <Row>
             <h1>My Characters ({props.char.length}):</h1> 
+            <p>Use this page to manage your existing characters.</p>
             {props.char.map((char, key) => {
                 return(
                     <Card key={key}>
