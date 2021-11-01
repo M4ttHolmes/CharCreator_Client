@@ -35,6 +35,10 @@ h1 {
   padding: 5px;
 }
 
+.backgroundFix {
+  height: 100%
+}
+
 .sidebar {
   display: flex;
   background-color: #9d0a0e;
