@@ -50,7 +50,7 @@ const Search = (props) => {
                     subtitle1.textContent = `${current.alignment} ${current.race} ${current.charClass}`;
                     subtitle2.textContent = `Campaign: ${current.campaignName}`;
                     para1.textContent = `Appearance: ${current.appearance}`;
-                    para2.textContent = `Decription: ${current.description}`;
+                    para2.textContent = `Description: ${current.description}`;
                     para3.textContent = `Personality: ${current.personality}`;
                     para4.textContent = `Background: ${current.background}`;
 
@@ -134,7 +134,7 @@ const Search = (props) => {
                     subtitle1.textContent = `${current.alignment} ${current.race} ${current.charClass}`;
                     subtitle2.textContent = `Campaign: ${current.campaignName}`;
                     para1.textContent = `Appearance: ${current.appearance}`;
-                    para2.textContent = `Decription: ${current.description}`;
+                    para2.textContent = `Description: ${current.description}`;
                     para3.textContent = `Personality: ${current.personality}`;
                     para4.textContent = `Background: ${current.background}`;
 
