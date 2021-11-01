@@ -1,5 +1,15 @@
 import React, {useEffect, useState} from "react";
 import {Button, Form, FormGroup, Label, Input} from "reactstrap";
+import MagicBanner from "../assets/magic.jpg"
+
+const styles =  {
+    headerImg: {
+        height: "220px",
+        width: "100%",
+        objectFit: "cover"
+    }
+
+}
 
 
 const CreateCharacter = (props) => {
@@ -95,6 +105,8 @@ const CreateCharacter = (props) => {
     return (
         <div className="main">
             <div className="mainDiv">
+            <img alt="dragon" style={styles.headerImg} src={MagicBanner} />
+            <hr />
                 <h1>Create Character</h1>
                 <hr />
                 <Form className="createForm" onSubmit={createCharacter}>

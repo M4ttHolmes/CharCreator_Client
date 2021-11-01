@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Radium from 'radium';
-import './auth.css';
+import '../App.css';
+import DDlogo from '../assets/DDlogo.png'
 
 const styles = {
     
@@ -42,6 +43,7 @@ const submitBut = () => {
     return !login ? 'Create User' : 'Login'
 }
 
+
 const loginToggle = (e) => {
     e.preventDefault();
 
@@ -57,15 +59,15 @@ const loginToggle = (e) => {
 const signupFields = () => !login ?
 (
     <div>
-        <label htmlFor="username" id="userlabel">Username:</label>
+        <label htmlFor="username" id="userlabel"><strong>Username:</strong></label>
         <br/>
         <input required type='text' id="username" placeholder="Create A Username" value={username} onChange={(e) => setUsername(e.target.value)} />
         <br/>
-        <label htmlFor="firstName">First Name:</label>
+        <label htmlFor="firstName"><strong>First Name:</strong></label>
         <br/>
         <input required type='text' id="firstName" placeholder="Your First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
         <br/>
-        <label  required htmlFor="lastName">Last Name:</label>
+        <label  required htmlFor="lastName"><strong>Last Name:</strong></label>
         <br/>
         <input required type='text' id="lastName" placeholder="Your Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
     </div>
@@ -112,15 +114,17 @@ const handleSubmit = event => {
     return (
         <div style={styles.login}>
             <form id="Login">
+                <img src={DDlogo} alt="ddlogoauth" id="ddlogo"/>
+                <br />
                 <button className="btn-lg btn-danger btn-block" onClick={loginToggle}>{logsignbut()}</button>
                 <br/>
                 <h1 class="display-1">{title()}</h1>
                 <hr style={styles.hr} />
-                <label htmlFor="email">Email:</label>
+                <label htmlFor="email"><strong>Email:</strong></label>
                 <br/>
-                <input required type="email" id="email" placeholder="Enter E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input required type="email" id="email" placeholder="Ex: dragon@email.com" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <br/>
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password"><strong>Password:</strong></label>
                 <br/>
                 <input required type="password" id="password" placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <br/>
