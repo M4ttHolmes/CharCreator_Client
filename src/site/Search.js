@@ -193,7 +193,6 @@ const Search = (props) => {
                 </div>
                 <br />
                 <br />
-                <hr />
                 <Row id="characters">
 
                 </Row>
