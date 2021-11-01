@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import { Form, FormGroup, ModalHeader, Button, Label, Input, Modal, ModalBody } from 'reactstrap';
+import Radium from 'radium'
+
 
 const UpdateCharacter = (props) => {
     const [editName, setEditName] = useState(props.updatedCharacter.name);
@@ -32,9 +34,14 @@ const UpdateCharacter = (props) => {
                 "Content-Type": "application/json",
                 "Authorization": props.sessionToken
             })
-        }).then((res) => {
+        })
+            .then(res => res.json())
+            .then(json => {
+            console.log(json)
             props.getMyCharacters();
             props.updateOff();
+            
+
         })
     }
 
@@ -119,6 +126,9 @@ const UpdateCharacter = (props) => {
                     </FormGroup>
                     <Button className="editBtn" type="submit">Update Your Character</Button>
                 </Form>
+                <div id="feedback">
+
+                </div>
             </ModalBody>
         </Modal>
         

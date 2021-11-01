@@ -232,3 +232,9 @@ ul {
 .modal-body {
   background-color: #e7e7db;
 }
+
+#ddlogo {
+  width: 26%;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
