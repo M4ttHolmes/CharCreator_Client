@@ -30,11 +30,6 @@ const styles = {
         marginLeft: "25%"
     },
 
-
-    logo: {
-        border: "black"
-    },
-
 }
 
 const Auth = (props) => {
