@@ -16,6 +16,7 @@ const styles =  {
 const Home = (props) => {
 
     return(
+    <div className="backgroundFix">
         <div className="main">
             <div className="mainDiv">
                 <img alt="dragon" style={styles.headerImg} src={HomeDragon} />
@@ -24,6 +25,7 @@ const Home = (props) => {
                     <Characters sessionToken={props.sessionToken}/>   
             </div>
         </div>
+    </div>
     </div>
     )
 };
