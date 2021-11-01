@@ -28,7 +28,7 @@ const Characters = (props) => {
         })
         .catch(err => console.log(err))
     }
-
+    
     const editUpdateCharacter = (characterId) => {
         setUpdatedCharacter(characterId);
         console.log(characterId)
