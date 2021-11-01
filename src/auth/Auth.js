@@ -114,8 +114,6 @@ const handleSubmit = event => {
             <form id="Login">
                 <img style={styles.logo} src={DDlogo} alt="ddlogoauth" id="ddlogo"/>
                 <hr style={styles.hr1} />
-                <button className="btn-lg btn-danger btn-block" onClick={loginToggle}>{logsignbut()}</button>
-                <br/>
                 <h1 class="display-1">{title()}</h1>
                 <hr style={styles.hr2} />
                 <label htmlFor="email"><strong>Email:</strong></label>
@@ -129,6 +127,9 @@ const handleSubmit = event => {
                 {signupFields()}
                 <br/>
                 <button type="submit" className="btn-lg btn-dark btn-block" onClick={handleSubmit}>{submitBut()} </button>
+                <br/>
+                <br/>
+                <button className="btn-lg btn-danger btn-block" onClick={loginToggle}>{logsignbut()}</button>
             </form>
         </div>
     )
