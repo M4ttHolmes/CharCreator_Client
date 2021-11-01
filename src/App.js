@@ -9,11 +9,19 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 
 function App() {
   const [sessionToken, setSessionToken] = useState(undefined);
+  const [username, setUsername] = useState("");
+
   useEffect(() => {
     if(localStorage.getItem('token')){
       setSessionToken(localStorage.getItem('token'))
     }
   }, []);
+
+
+  const updateUserName = (userName) => {
+    setUsername(userName);
+    console.log(userName);
+  };
 
   const updateLocalStorage = (newToken) => {
     localStorage.setItem('token', newToken);
@@ -28,7 +36,7 @@ function App() {
 
   const viewConductor = () => {
     return sessionToken !== undefined ?
-    <Sidebar sessionToken={sessionToken} clearLocalStorage={clearLocalStorage} /> : <Auth updateLocalStorage={updateLocalStorage}/>
+    <Sidebar username={username} sessionToken={sessionToken} clearLocalStorage={clearLocalStorage} /> : <Auth updateUserName={updateUserName} updateLocalStorage={updateLocalStorage}/>
   }
 
   return (
