@@ -8,7 +8,7 @@ const styles = {
     
     login: {
         backgroundSize: "cover",
-        backgroundColor: "#e7e7db",
+        backgroundColor: "rgba(231,231,219,0.6",
         textAlign: "center",
         margin: "auto",
         width: "50%",
@@ -26,11 +26,6 @@ const styles = {
     hr2: {
         width: "50%",
         marginLeft: "25%"
-    },
-
-
-    logo: {
-        border: "black"
     },
 
 }
