@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {Button, Form, FormGroup, Label, Input} from "reactstrap";
 import MagicBanner from "../assets/magic.jpg"
-import Radium from 'radium'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Radium from 'radium'
+
 
 const styles =  {
     headerImg: {
@@ -43,9 +44,9 @@ const CreateCharacter = (props) => {
     const [campaignName, setCampaignName] = useState("");
     const [loginUsername, setLoginUsername] = useState();
     
+    const notify = () => toast("🦄 Character Created")
 
     const createCharacter = (e) => {
-        // const notify = () => toast("Character Created")
         e.preventDefault();
         let url = "http://localhost:3000/character/create"
         fetch(url, {
@@ -84,15 +85,15 @@ const CreateCharacter = (props) => {
             // props.fetchWorkouts();
             // props.setCreatePie(false);
 
-            let feedback = document.getElementById("feedback")
-            let message = document.createElement("h3")
+            // let feedback = document.getElementById("feedback")
+            // let message = document.createElement("h3")
 
-            feedback.appendChild(message)
-            message.textContent = "Character Created"
-
+            // feedback.appendChild(message)
+            // message.textContent = "Character Created"
+            
         })
         .catch(err => console.log(err))
-
+        
     }
     const NameRandomizer = () => {
 
@@ -122,6 +123,7 @@ const CreateCharacter = (props) => {
             .catch(err => console.log(err))
     //   }, [])
 }
+
    
 
     return (
@@ -212,12 +214,12 @@ const CreateCharacter = (props) => {
                     </FormGroup>
                     <br />
                     <div>
-                    <Button class="editBtn" type='submit'>Create!</Button>
-                    <ToastContainer />
+                    <Button class="editBtn" type='submit' onClick={notify}>Create!</Button>
+                    
                     </div>
                 </Form>
                 <div id="feedback">
-
+                    <ToastContainer closeButton={false} position="bottom-right" progressClassName="toastProgress"/>
                 </div>
             </div>
         </div>
