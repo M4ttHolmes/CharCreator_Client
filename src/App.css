@@ -238,3 +238,6 @@ ul {
   margin-bottom: 12px;
   margin-top: 30px;
 }
+.toastProgress {
+  background: #333F48 !important;
+}
