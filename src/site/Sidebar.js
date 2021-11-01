@@ -11,6 +11,7 @@ const Sidebar = (props) => {
             <div className="sidebar-list-styling">
                 <img alt="dnd-ampersand" id="ampersand" src={Ampersand}/> 
                 <hr />
+                <h5>Welcome {props.username}!</h5>
                 <ul className="sidebar-list list-unstyled">
                     <li><Link to="/home"><Button className="navButton" color="danger" outline>Home</Button></Link></li>
                     <li><Link to="/create"><Button className="navButton" color="danger" outline>Create Character</Button></Link></li>

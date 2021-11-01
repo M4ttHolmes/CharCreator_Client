@@ -130,7 +130,7 @@ const CreateCharacter = (props) => {
             <img alt="dragon" style={styles.headerImg} src={MagicBanner} />
             <hr />
                 <h1>Create Character</h1>
-                <hr />
+                <p>Add a new Hero to your roster!</p>
                 <Form className="createForm" onSubmit={createCharacter}>
                     <FormGroup style={styles.toCenter}>
                     <Label htmlFor="name">Create Your Name</Label>
