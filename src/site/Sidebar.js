@@ -5,14 +5,27 @@ import Search from "./Search"
 import CreateCharacter from "../characters/CharacterCreate";
 import Ampersand from "../assets/ampersand.png"
 
+const styles = {
+    hr: {
+        color: "black",
+        height: "2px",
+        marginLeft: "auto",
+        marginRight: "auto",
+        marginTop: "0",
+        marginBottom: "0",
+        width: "75%"
+    }
+}
+
 const Sidebar = (props) => {
     return(
         <div className="sidebar">
             <div className="sidebar-list-styling">
                 <img alt="dnd-ampersand" id="ampersand" src={Ampersand}/> 
-                <hr />
+                <br />
                 <h5>Welcome {props.username}!</h5>
                 <ul className="sidebar-list list-unstyled">
+                    <li><hr style={styles.hr}/></li>
                     <li><Link to="/home"><Button className="navButton" color="danger" outline>Home</Button></Link></li>
                     <li><Link to="/create"><Button className="navButton" color="danger" outline>Create Character</Button></Link></li>
                     <li><Link to="/search"><Button className="navButton" color="danger" outline>Search</Button></Link></li>

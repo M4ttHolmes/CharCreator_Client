@@ -1,9 +1,5 @@
-body {
+.loginBackground {
 background-image: url(../assets/DDCC.jpg);
 background-size: cover;
-height: 100%;
-}
-
-.loginPage {
-    opacity: .87;
+height: 100vh;
 }
