@@ -6,23 +6,21 @@ import DDlogo from '../assets/DDlogo.png'
 const styles = {
     
     login: {
-        display: "table",
-        width: "100%", 
+        display: "table", 
         backgroundSize: "cover",
         backgroundColor: "#e7e7db",
         textAlign: "center",
+        margin: "auto"
     },
-    
-    hr: {
-        width: "20%",
-        marginLeft: "40%",
+
+
+    logo: {
+        border: "black"
     }
 }
 
 const Auth = (props) => {
-    // let history = useHistory();
 
-    // history.push('/home')
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -114,12 +112,12 @@ const handleSubmit = event => {
     return (
         <div style={styles.login}>
             <form id="Login">
-                <img src={DDlogo} alt="ddlogoauth" id="ddlogo"/>
-                <br />
+                <img style={styles.logo} src={DDlogo} alt="ddlogoauth" id="ddlogo"/>
+                <hr style={styles.hr1} />
                 <button className="btn-lg btn-danger btn-block" onClick={loginToggle}>{logsignbut()}</button>
                 <br/>
                 <h1 class="display-1">{title()}</h1>
-                <hr style={styles.hr} />
+                <hr style={styles.hr2} />
                 <label htmlFor="email"><strong>Email:</strong></label>
                 <br/>
                 <input required type="email" id="email" placeholder="Ex: dragon@email.com" value={email} onChange={(e) => setEmail(e.target.value)} />
