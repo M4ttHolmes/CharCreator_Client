@@ -10,7 +10,7 @@ const styles =  {
     }
 }
 
-const Search = (props) => {
+const Search = () => {
     const [char, setChar] = useState([])
     const [count, setCount] = useState(0);
 
@@ -60,12 +60,20 @@ const Search = (props) => {
         })
     }
 
+    const searchDisplay = () => {
+        if (count == 0) {
+            return
+        } else {
+            return `(${count})`
+        }
+    }
+
     return(
         <div className="main">
             <div className="mainDiv">
                 <img alt="dragon" style={styles.headerImg} src={Party} />
                 <hr />
-                <h1>Search Characters ({char.length})</h1>
+                <h1>Search Characters {searchDisplay()}</h1>
 
                 <div style={{float: "left"}}>
                     <Button className="btn btn-danger deleteBtn" onClick={getAllCharacters}>View All Characters</Button>
