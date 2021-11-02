@@ -16,6 +16,17 @@ const styles = {
         marginTop: "0",
         marginBottom: "0",
         width: "75%"
+    },
+
+    hrSpace: {
+        color: "black",
+        height: "2px",
+        marginLeft: "auto",
+        marginRight: "auto",
+        marginTop: "0",
+        marginBottom: "0",
+        width: "75%",
+        marginBottom: "250px"
     }
 }
 
@@ -32,7 +43,7 @@ const Sidebar = (props) => {
     // }
 
     return(
-        <Row className="sidebar">
+        <div className="sidebar">
             <div className="sidebar-list-styling">
                 <img alt="dnd-ampersand" id="ampersand" src={Ampersand}/> 
                 <br />
@@ -44,6 +55,7 @@ const Sidebar = (props) => {
                     <li><Link to="/create"><Button className="navButton" color="danger" outline>Create Character</Button></Link></li>
                     <li><Link to="/search"><Button className="navButton" color="danger" outline>Search</Button></Link></li>
                     <li><Link to="/"><Button className="navButton" color="warning" outline onClick={props.clearLocalStorage}>Logout</Button></Link></li>
+                    <li><hr style={styles.hrSpace}/></li>
                     <li><Link to="/deleteuser"><Button className="navButton" color="warning" outline onClick={props.clearLocalStorage}>Delete User</Button></Link></li>
                 </ul>
             </div>
@@ -56,7 +68,7 @@ const Sidebar = (props) => {
                     <Route exact path="/deleteuser"><Delete sessionToken={props.sessionToken}/></Route>
                 </Switch>
             </div>
-        </Row>
+        </div>
     );
 };
 
