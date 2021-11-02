@@ -4,6 +4,8 @@ import Home from "./Home";
 import Search from "./Search"
 import CreateCharacter from "../characters/CharacterCreate";
 import Ampersand from "../assets/ampersand.png"
+import Delete from "../auth/DeleteUser"
+import { useState } from "react";
 
 const styles = {
     hr: {
@@ -18,6 +20,17 @@ const styles = {
 }
 
 const Sidebar = (props) => {
+    
+    // const [deleteUser, setDeleteUser] = useState(false)
+
+    // const deleteOn = () => {
+    //     setDeleteUser(true);
+    // }
+
+    // const deleteOff = () => {
+    //     setDeleteUser(false);
+    // }
+
     return(
         <div className="sidebar">
             <div className="sidebar-list-styling">
@@ -31,6 +44,7 @@ const Sidebar = (props) => {
                     <li><Link to="/create"><Button className="navButton" color="danger" outline>Create Character</Button></Link></li>
                     <li><Link to="/search"><Button className="navButton" color="danger" outline>Search</Button></Link></li>
                     <li><Link to="/"><Button className="navButton" color="warning" outline onClick={props.clearLocalStorage}>Logout</Button></Link></li>
+                    <li><Link to="/deleteuser"><Button className="navButton" color="warning" outline onClick={props.clearLocalStorage}>Delete User</Button></Link></li>
                 </ul>
             </div>
             <div className="sidebar-route">
@@ -39,6 +53,7 @@ const Sidebar = (props) => {
                     <Route exact path="/create"><CreateCharacter sessionToken={props.sessionToken}/></Route>
                     <Route exact path="/home"><Home sessionToken={props.sessionToken}/></Route>
                     <Route exact path="/search"><Search /></Route>
+                    <Route exact path="/deleteuser"><Delete sessionToken={props.sessionToken}/></Route>
                 </Switch>
             </div>
         </div>
