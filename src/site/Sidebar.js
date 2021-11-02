@@ -1,5 +1,5 @@
 import { Route, Link, Switch } from "react-router-dom";
-import { Button } from "reactstrap"
+import { Button, Col, Row, Container } from "reactstrap"
 import Home from "./Home";
 import Search from "./Search"
 import CreateCharacter from "../characters/CharacterCreate";
@@ -19,7 +19,7 @@ const styles = {
 
 const Sidebar = (props) => {
     return(
-        <div className="sidebar">
+        <Row className="sidebar">
             <div className="sidebar-list-styling">
                 <img alt="dnd-ampersand" id="ampersand" src={Ampersand}/> 
                 <br />
@@ -41,7 +41,7 @@ const Sidebar = (props) => {
                     <Route exact path="/search"><Search /></Route>
                 </Switch>
             </div>
-        </div>
+        </Row>
     );
 };
 
