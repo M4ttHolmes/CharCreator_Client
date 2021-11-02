@@ -8,7 +8,6 @@ const styles =  {
         width: "100%",
         objectFit: "cover"
     }
-
 }
 
 const Search = (props) => {
@@ -35,8 +34,6 @@ const Search = (props) => {
             console.error(err);
         })
     }
-
-
 
     // Display By Title
     function getByCampaign() {
@@ -68,7 +65,7 @@ const Search = (props) => {
             <div className="mainDiv">
                 <img alt="dragon" style={styles.headerImg} src={Party} />
                 <hr />
-                <h1>Search Characters</h1>
+                <h1>Search Characters ({char.length})</h1>
 
                 <div style={{float: "left"}}>
                     <Button className="btn btn-danger deleteBtn" onClick={getAllCharacters}>View All Characters</Button>
@@ -100,30 +97,5 @@ const Search = (props) => {
         </div>
     )
 }
-
-
-    // return(
-        // <div className="main">
-        //     <div className="mainDiv">
-        //     <img alt="dragon" style={styles.headerImg} src={Party} />
-        //         <hr />
-        //         <h1>Search Characters</h1>
-
-        //         <div style={{float: "left"}}>
-        //             <Button className="btn btn-danger deleteBtn" onClick={getAllCharacters}>View All Characters</Button>
-        //         </div>
-        //         <div style={{float: "right"}}> 
-        //             <input id="searchBar" type="text" placeholder="Search" style={{width: "250px"}} />
-        //             <Button className="btn btn-danger deleteBtn" onClick={getByCampaign}>Search by Campaign</Button>
-        //         </div>
-    //             <br />
-    //             <br />
-    //             <Row id="characters">
-
-    //             </Row>
-    //         </div>
-    //     </div>
-    // )
-// }
 
 export default Search;
