@@ -31,10 +31,18 @@ const DisplayCharacter = (props) => {
             })
         }; 
 
+        const charCount = () => {
+            if (props.char.length == 0) {
+                return
+            } else {
+                return `(${props.char.length})`
+            }
+        }
+
 
     return(
         <Row>
-            <h1>My Characters ({props.char.length}):</h1> 
+            <h1>My Characters {charCount()}:</h1> 
             <p>Use this page to manage your existing characters.</p>
             {props.char.map((char, key) => {
                 return(
