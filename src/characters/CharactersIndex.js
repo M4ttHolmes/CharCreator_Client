@@ -22,9 +22,7 @@ const Characters = (props) => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             setChar(data.reverse())
-            console.log(char)
         })
         .catch(err => console.log(err))
     }
