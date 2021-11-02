@@ -27,6 +27,10 @@ const styles = {
         marginBottom: "0",
         width: "75%",
         marginBottom: "250px"
+    },
+
+    dangerZone: {
+        backgroundColor: "black",
     }
 }
 
@@ -56,7 +60,7 @@ const Sidebar = (props) => {
                     <li><Link to="/search"><Button className="navButton" color="danger" outline>Search</Button></Link></li>
                     <li><Link to="/"><Button className="navButton" color="warning" outline onClick={props.clearLocalStorage}>Logout</Button></Link></li>
                     <li><hr style={styles.hrSpace}/></li>
-                    <li><Link to="/deleteuser"><Button className="navButton" color="warning" outline onClick={props.clearLocalStorage}>Delete User</Button></Link></li>
+                    <li><Link to="/deleteuser"><Button style={styles.dangerZone} className="navButton" color="danger" outline onClick={props.clearLocalStorage}>Delete My Account</Button></Link></li>
                 </ul>
             </div>
             <div className="sidebar-route">
