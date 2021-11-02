@@ -1,7 +1,10 @@
 import React from "react";
 import { Row, Button, Card, CardBody, CardText, CardSubtitle } from 'reactstrap';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const DisplayCharacter = (props) => {
+    const notify = () => toast("🐉  Character Deleted")
 
     // Delete Character
     const deleteCharacter = (charId) => {
@@ -45,11 +48,12 @@ const DisplayCharacter = (props) => {
                             <CardText><strong>Personality:</strong> {char.personality}</CardText>
                             <CardText><strong>Background:</strong> {char.background}</CardText>
                             <Button className="btn btn-warning editBtn" type="button" onClick={() => {props.editUpdateCharacter(char); props.updateOn()}}>Edit Character</Button>
-                            <Button className="btn btn-danger deleteBtn" type="button" onClick={() => deleteCharacter(char.id)}>Delete Character</Button>
+                            <Button className="btn btn-danger deleteBtn" type="button" onClick={() => {deleteCharacter(char.id); notify()}}>Delete Character</Button>
                         </CardBody>
                     </Card>
                 )
             })}
+            <ToastContainer closeButton={false} position="bottom-right" progressClassName="toastProgress"/>
         </Row>
     )
 }

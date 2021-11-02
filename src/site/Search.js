@@ -1,5 +1,5 @@
-import React from "react";
-import Reactstrap, { Button, Row } from "reactstrap";
+import React, { useState } from "react";
+import { Row, Button, Card, CardBody, CardText, CardSubtitle } from 'reactstrap';
 import Party from "../assets/party.jpg"
 
 const styles =  {
@@ -8,10 +8,11 @@ const styles =  {
         width: "100%",
         objectFit: "cover"
     }
-
 }
 
 const Search = (props) => {
+    const [char, setChar] = useState([])
+    const [count, setCount] = useState(0);
 
     // Display All Characters
     function getAllCharacters() {
@@ -26,74 +27,13 @@ const Search = (props) => {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-
-            let display = document.getElementById("characters");
-            for (let i = 0; i = display.childNodes.length; i++) {
-                display.removeChild(display.firstChild)
-            }
-
-            if (data.length === 0) {
-                let display = document.getElementById("characters");
-                let header = document.createElement("h5");
-                
-                display.appendChild(header);
-                header.textContent = "No one has made a character yet...";
-                header.setAttribute("class", "noChars")
-            } else {
-
-                for (let i = 0; i < data.length; i++) {
-                    let display = document.getElementById("characters");
-                    let card = document.createElement("div");
-                    let body = document.createElement("div");
-                    let header = document.createElement("h5");
-                    let subtitle1 = document.createElement("h6");
-                    let subtitle2 = document.createElement("h6");
-                    let para1 = document.createElement("p");
-                    let para2 = document.createElement("p");
-                    let para3 = document.createElement("p");
-                    let para4 = document.createElement("p");
-
-                    let current = data[i];
-                    let count = data.length;
-                    
-                    header.textContent = current.name;
-                    subtitle1.textContent = `${current.alignment} ${current.race} ${current.charClass}`;
-                    subtitle2.textContent = `Campaign: ${current.campaignName}`;
-                    para1.textContent = `Appearance: ${current.appearance}`;
-                    para2.textContent = `Description: ${current.description}`;
-                    para3.textContent = `Personality: ${current.personality}`;
-                    para4.textContent = `Background: ${current.background}`;
-
-
-                    display.appendChild(card);
-                    card.appendChild(body);
-                    body.appendChild(header);
-                    body.appendChild(subtitle1);
-                    body.appendChild(subtitle2);
-                    body.appendChild(para1);
-                    body.appendChild(para2);
-                    body.appendChild(para3);
-                    body.appendChild(para4);
-
-                    card.setAttribute("id", current.id);
-                    card.setAttribute("class", "card");
-                    body.setAttribute("class", "card-body");
-                    header.setAttribute("class", "card-title");
-                    subtitle1.setAttribute("class", "card-subtitle mb-2 text-muted");
-                    subtitle2.setAttribute("class", "card-subtitle mb-2 text-muted");
-                    para1.setAttribute("class", "card-text");
-                    para2.setAttribute("class", "card-text");
-                    para3.setAttribute("class", "card-text");
-                    para4.setAttribute("class", "card-text");
-                }
-            }
+            setChar(data)
+            setCount(data.length)
         })
         .catch(err => {
             console.error(err);
         })
     }
-
-
 
     // Display By Title
     function getByCampaign() {
@@ -112,77 +52,20 @@ const Search = (props) => {
         .then(data => {
             console.log(data);
 
-            let display = document.getElementById("characters");
-            for (let i = 0; i = display.childNodes.length; i++) {
-                display.removeChild(display.firstChild)
-            }
-
-            if (data.length === 0) {
-                let display = document.getElementById("characters");
-                let header = document.createElement("h5");
-                
-                display.appendChild(header);
-                header.textContent = "No one has made a character yet...";
-                header.setAttribute("class", "noChars")
-            } else {
-
-                for (let i = 0; i < data.length; i++) {
-                    let display = document.getElementById("characters");
-                    let card = document.createElement("div");
-                    let body = document.createElement("div");
-                    let header = document.createElement("h5");
-                    let subtitle1 = document.createElement("h6");
-                    let subtitle2 = document.createElement("h6");
-                    let para1 = document.createElement("p");
-                    let para2 = document.createElement("p");
-                    let para3 = document.createElement("p");
-                    let para4 = document.createElement("p");
-
-                    let current = data[i];
-                    
-                    header.textContent = current.name;
-                    subtitle1.textContent = `${current.alignment} ${current.race} ${current.charClass}`;
-                    subtitle2.textContent = `Campaign: ${current.campaignName}`;
-                    para1.textContent = `Appearance: ${current.appearance}`;
-                    para2.textContent = `Description: ${current.description}`;
-                    para3.textContent = `Personality: ${current.personality}`;
-                    para4.textContent = `Background: ${current.background}`;
-
-                    display.appendChild(card);
-                    card.appendChild(body);
-                    body.appendChild(header);
-                    body.appendChild(subtitle1);
-                    body.appendChild(subtitle2);
-                    body.appendChild(para1);
-                    body.appendChild(para2);
-                    body.appendChild(para3);
-                    body.appendChild(para4);
-
-                    card.setAttribute("id", current.id);
-                    card.setAttribute("class", "card");
-                    body.setAttribute("class", "card-body");
-                    header.setAttribute("class", "card-title");
-                    subtitle1.setAttribute("class", "card-subtitle mb-2 text-muted");
-                    subtitle2.setAttribute("class", "card-subtitle mb-2 text-muted");
-                    para1.setAttribute("class", "card-text");
-                    para2.setAttribute("class", "card-text");
-                    para3.setAttribute("class", "card-text");
-                    para4.setAttribute("class", "card-text");
-                }
-            }
+            setChar(data)
+            setCount(data.length)
         })
         .catch(err => {
             console.error(err);
         })
     }
 
-
     return(
         <div className="main">
             <div className="mainDiv">
-            <img alt="dragon" style={styles.headerImg} src={Party} />
+                <img alt="dragon" style={styles.headerImg} src={Party} />
                 <hr />
-                <h1>Search Characters</h1>
+                <h1>Search Characters ({char.length})</h1>
 
                 <div style={{float: "left"}}>
                     <Button className="btn btn-danger deleteBtn" onClick={getAllCharacters}>View All Characters</Button>
@@ -193,8 +76,22 @@ const Search = (props) => {
                 </div>
                 <br />
                 <br />
-                <Row id="characters">
-
+                <Row id="character">
+                {char.map((char, key) => {
+                    return(
+                        <Card key={key}>
+                            <CardBody>
+                                <h5 className="card-title">{char.name}</h5>
+                                <CardSubtitle className="mb-2 text-muted">{char.alignment} / {char.race} / {char.charClass}</CardSubtitle>
+                                <CardSubtitle className="mb-2 text-muted">Campaign: {char.campaignName}</CardSubtitle>
+                                <CardText><strong>Appearance:</strong> {char.appearance}</CardText>
+                                <CardText><strong>Description:</strong> {char.description}</CardText>
+                                <CardText><strong>Personality:</strong> {char.personality}</CardText>
+                                <CardText><strong>Background:</strong> {char.background}</CardText>                        
+                            </CardBody>
+                        </Card>
+                    )
+                })}
                 </Row>
             </div>
         </div>

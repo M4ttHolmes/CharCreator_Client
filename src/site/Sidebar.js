@@ -23,7 +23,8 @@ const Sidebar = (props) => {
             <div className="sidebar-list-styling">
                 <img alt="dnd-ampersand" id="ampersand" src={Ampersand}/> 
                 <br />
-                <h5>Welcome {props.username}!</h5>
+                <h5>Welcome {props.firstName}!</h5>
+                <p style={{fontSize: "14px"}}>(username: {props.username})</p>
                 <ul className="sidebar-list list-unstyled">
                     <li><hr style={styles.hr}/></li>
                     <li><Link to="/home"><Button className="navButton" color="danger" outline>Home</Button></Link></li>
