@@ -57,7 +57,7 @@ const Search = (props) => {
                     let count = data.length;
                     
                     header.textContent = current.name;
-                    subtitle1.textContent = `${current.alignment} ${current.race} ${current.charClass}`;
+                    subtitle1.textContent = `${current.alignment} / ${current.race} / ${current.charClass}`;
                     subtitle2.textContent = `Campaign: ${current.campaignName}`;
                     para1.textContent = `Appearance: ${current.appearance}`;
                     para2.textContent = `Description: ${current.description}`;
@@ -141,7 +141,7 @@ const Search = (props) => {
                     let current = data[i];
                     
                     header.textContent = current.name;
-                    subtitle1.textContent = `${current.alignment} ${current.race} ${current.charClass}`;
+                    subtitle1.textContent = `${current.alignment} / ${current.race} / ${current.charClass}`;
                     subtitle2.textContent = `Campaign: ${current.campaignName}`;
                     para1.textContent = `Appearance: ${current.appearance}`;
                     para2.textContent = `Description: ${current.description}`;
