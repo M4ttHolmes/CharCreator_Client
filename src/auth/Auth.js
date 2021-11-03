@@ -127,14 +127,14 @@ const handleSubmit = event => {
     return (
         <div className="loginBackground">
         <div style={styles.login} className="loginPage">
-            <form id="Login">
+            <form id="Login" onSubmit={handleSubmit}>
                 <img style={styles.logo} src={DDlogo} alt="ddlogoauth" id="ddlogo"/>
                 <hr style={styles.hr1} />
                 <h1 class="display-1">{title()}</h1>
                 <hr style={styles.hr2} />
                 <label htmlFor="email"><strong>Email:</strong></label>
                 <br/>
-                <input required type="email" id="email" value="email" placeholder="Ex: dragon@email.com" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input required type="email" id="email" placeholder="Ex: dragon@email.com" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <br/>
                 <label htmlFor="password"><strong>Password:</strong></label>
                 <br/>
@@ -142,7 +142,7 @@ const handleSubmit = event => {
                 <br/>
                 {signupFields()}
                 <br/>
-                <button type="submit" className="btn-lg btn-dark btn-block" onClick={handleSubmit}>{submitBut()} </button>
+                <button type="submit" className="btn-lg btn-dark btn-block" >{submitBut()} </button>
                 <br/>
                 <br/>
                 <button className="btn-lg btn-danger btn-block" onClick={loginToggle}>{logsignbut()}</button>
