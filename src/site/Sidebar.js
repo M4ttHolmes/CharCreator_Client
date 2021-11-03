@@ -4,7 +4,6 @@ import Home from "./Home";
 import Search from "./Search"
 import CreateCharacter from "../characters/CharacterCreate";
 import Ampersand from "../assets/ampersand.png"
-import Delete from "../auth/DeleteUser"
 import { useState } from "react";
 
 const styles = {
@@ -26,25 +25,39 @@ const styles = {
         marginTop: "0",
         marginBottom: "0",
         width: "75%",
-        marginBottom: "250px"
+        marginBottom: "175px"
     },
 
     dangerZone: {
         backgroundColor: "black",
     }
 }
+//}
+
 
 const Sidebar = (props) => {
+
+
+    const deleteUser = () => {
+        const proceed = window.confirm("Are you certain you wish to delete your own user account? Your characters will remain, but you will no longer be able to access them. This is a permanent action that cannot be undone.");
+        if (proceed) {
     
-    // const [deleteUser, setDeleteUser] = useState(false)
-
-    // const deleteOn = () => {
-    //     setDeleteUser(true);
-    // }
-
-    // const deleteOff = () => {
-    //     setDeleteUser(false);
-    // }
+            console.log('User Delete Function Called');
+    
+            const fetch_url = `http://localhost:3000/user/delete/loggedInUser`;
+    
+            fetch(fetch_url, {
+                method: 'DELETE',
+                headers: new Headers({
+                    "Content-Type": "application/json",
+                    "Authorization": props.sessionToken
+                })
+            })
+            props.clearLocalStorage();
+        } else {
+            console.log("Delete cancelled.");
+        }
+    }
 
     return(
         <div className="sidebar">
@@ -60,7 +73,7 @@ const Sidebar = (props) => {
                     <li><Link to="/search"><Button className="navButton" color="danger" outline>Search</Button></Link></li>
                     <li><Link to="/"><Button className="navButton" color="warning" outline onClick={props.clearLocalStorage}>Logout</Button></Link></li>
                     <li><hr style={styles.hrSpace}/></li>
-                    <li><Link to="/deleteuser"><Button style={styles.dangerZone} className="navButton" color="danger" outline onClick={props.clearLocalStorage}>Delete My Account</Button></Link></li>
+                    <li><Button style={styles.dangerZone} className="navButton" color="danger" outline onClick={deleteUser}>Delete My Account</Button></li>
                 </ul>
             </div>
             <div className="sidebar-route">
@@ -69,7 +82,6 @@ const Sidebar = (props) => {
                     <Route exact path="/create"><CreateCharacter sessionToken={props.sessionToken}/></Route>
                     <Route exact path="/home"><Home sessionToken={props.sessionToken}/></Route>
                     <Route exact path="/search"><Search /></Route>
-                    <Route exact path="/deleteuser"><Delete sessionToken={props.sessionToken}/></Route>
                 </Switch>
             </div>
         </div>

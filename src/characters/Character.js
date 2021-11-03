@@ -8,29 +8,36 @@ const DisplayCharacter = (props) => {
 
     // Delete Character
     const deleteCharacter = (charId) => {
-        console.log("deleteCharacter Function Called");
-        console.log(charId);
 
-        const fetch_url = `http://localhost:3000/character/${charId}`;
+        const proceed = window.confirm("Are you certain you wish to delete this character? This is a permanent action that cannot be undone.");
+        if (proceed) {
 
-        fetch(fetch_url, {
-            method: "DELETE",
-            headers: new Headers({
-                "Content-Type": "application/json",
-                "Authorization": props.sessionToken
-              
-            })
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                props.getMyCharacters();
-            })
-            .catch(err => {
-                console.error(err);
-            })
-        }; 
+            console.log("deleteCharacter Function Called");
+            console.log(charId);
 
+            const fetch_url = `http://localhost:3000/character/${charId}`;
+
+            fetch(fetch_url, {
+                method: "DELETE",
+                headers: new Headers({
+                    "Content-Type": "application/json",
+                    "Authorization": props.sessionToken
+                
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    props.getMyCharacters();
+                })
+                .catch(err => {
+                    console.error(err);
+                })
+        } else {
+            console.log("Delete cancelled.");
+        }
+    }; 
+            
         const charCount = () => {
             if (props.char.length == 0) {
                 return
