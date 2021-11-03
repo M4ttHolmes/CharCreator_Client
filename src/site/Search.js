@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Row, Button, Card, CardBody, CardText, CardSubtitle } from 'reactstrap';
 import Party from "../assets/party.jpg"
+import APIURL from "../helpers/environment";
 
 const styles =  {
     headerImg: {
@@ -18,7 +19,7 @@ const Search = () => {
     function getAllCharacters() {
     console.log("displayAllCharacters Function Called");
 
-        fetch(`http://localhost:3000/character/`, {
+        fetch(`${APIURL}/character/`, {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json",
@@ -42,7 +43,7 @@ const Search = () => {
         console.log(campaignTitle);
 
 
-        fetch(`http://localhost:3000/character/${campaignTitle}`, {
+        fetch(`${APIURL}/character/${campaignTitle}`, {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json",

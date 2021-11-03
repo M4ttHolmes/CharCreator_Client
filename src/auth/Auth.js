@@ -3,6 +3,7 @@ import Radium from 'radium';
 //import '../App.css';
 import DDlogo from '../assets/DDlogo.png'
 import "./auth.css"
+import APIURL from '../helpers/environment';
 
 const styles = {
     
@@ -105,8 +106,8 @@ const handleSubmit = event => {
     }
 
     let url = login ?
-    'http://localhost:3000/user/login' :
-    'http://localhost:3000/user/register';
+    `${APIURL}/user/login` :
+    `${APIURL}/user/register`;
 
     fetch(url, {
         method: 'POST',

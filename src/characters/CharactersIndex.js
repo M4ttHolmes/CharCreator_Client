@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DisplayCharacter from "./Character"
 import UpdateCharacter from "./CharacterEdit"
+import APIURL from "../helpers/environment";
 
 
 const Characters = (props) => {
@@ -12,7 +13,7 @@ const Characters = (props) => {
         console.log("GetMyCharacters Function Called");
         // const accessToken = localStorage.getItem("SessionToken");
         
-        fetch(`http://localhost:3000/character/mine`, {
+        fetch(`${APIURL}/character/mine`, {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json",
