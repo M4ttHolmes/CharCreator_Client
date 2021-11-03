@@ -4,6 +4,7 @@ import MagicBanner from "../assets/magic.jpg"
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Radium from 'radium'
+import APIURL from "../helpers/environment";
 
 
 const styles =  {
@@ -54,7 +55,7 @@ const CreateCharacter = (props) => {
 
     const createCharacter = (e) => {
         e.preventDefault();
-        let url = "http://localhost:3000/character/create"
+        let url = `${APIURL}/character/create`
         fetch(url, {
             method: "POST",
             body: JSON.stringify({

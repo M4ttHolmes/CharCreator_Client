@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Form, FormGroup, ModalHeader, Button, Label, Input, Modal, ModalBody } from 'reactstrap';
 import Radium from 'radium'
+import APIURL from '../helpers/environment';
 
 
 const UpdateCharacter = (props) => {
@@ -17,7 +18,7 @@ const UpdateCharacter = (props) => {
     const characterUpdate = (event, character) => {
         event.preventDefault();
         console.log(props);
-        fetch(`http://localhost:3000/character/update/${props.updatedCharacter.id}`, {
+        fetch(`${APIURL}/character/update/${props.updatedCharacter.id}`, {
 
             method: "PUT",
             body: JSON.stringify({character: {
