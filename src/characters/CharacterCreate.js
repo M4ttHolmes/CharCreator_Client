@@ -44,7 +44,13 @@ const CreateCharacter = (props) => {
     const [campaignName, setCampaignName] = useState("");
     const [loginUsername, setLoginUsername] = useState();
     
-    const notify = () => toast("🦄 Character Created")
+    const notify = () => {
+        if (name !== "") { 
+            toast("🦄 Character Created")
+        } else {
+            console.log("Name Required.");
+        }
+    }
 
     const createCharacter = (e) => {
         e.preventDefault();

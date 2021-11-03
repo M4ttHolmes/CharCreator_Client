@@ -4,33 +4,42 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 const DisplayCharacter = (props) => {
-    const notify = () => toast("🐉  Character Deleted")
-
+    
     // Delete Character
     const deleteCharacter = (charId) => {
-        console.log("deleteCharacter Function Called");
-        console.log(charId);
+        
+        const proceed = window.confirm("Are you certain you wish to delete this character? This is a permanent action that cannot be undone.");
+        if (proceed) {
+            
+            const notify = () => toast("🐉  Character Deleted")
+            console.log("deleteCharacter Function Called");
+            console.log(charId);
 
-        const fetch_url = `http://localhost:3000/character/${charId}`;
+            const fetch_url = `http://localhost:3000/character/${charId}`;
 
-        fetch(fetch_url, {
-            method: "DELETE",
-            headers: new Headers({
-                "Content-Type": "application/json",
-                "Authorization": props.sessionToken
-              
+            fetch(fetch_url, {
+                method: "DELETE",
+                headers: new Headers({
+                    "Content-Type": "application/json",
+                    "Authorization": props.sessionToken
+                
+                })
             })
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                props.getMyCharacters();
-            })
-            .catch(err => {
-                console.error(err);
-            })
-        }; 
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    props.getMyCharacters();
+                })
+                .catch(err => {
+                    console.error(err);
+                })
 
+                notify()
+        } else {
+            console.log("Delete cancelled.");
+        }
+    }; 
+            
         const charCount = () => {
             if (props.char.length == 0) {
                 return
@@ -56,7 +65,7 @@ const DisplayCharacter = (props) => {
                             <CardText><strong>Personality:</strong> {char.personality}</CardText>
                             <CardText><strong>Background:</strong> {char.background}</CardText>
                             <Button className="btn btn-warning editBtn" type="button" onClick={() => {props.editUpdateCharacter(char); props.updateOn()}}>Edit Character</Button>
-                            <Button className="btn btn-danger deleteBtn" type="button" onClick={() => {deleteCharacter(char.id); notify()}}>Delete Character</Button>
+                            <Button className="btn btn-danger deleteBtn" type="button" onClick={() => {deleteCharacter(char.id)}}>Delete Character</Button>
                         </CardBody>
                     </Card>
                 )
