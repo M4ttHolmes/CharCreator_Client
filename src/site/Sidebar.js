@@ -5,6 +5,7 @@ import Search from "./Search"
 import CreateCharacter from "../characters/CharacterCreate";
 import Ampersand from "../assets/ampersand.png"
 import { useState } from "react";
+import APIURL from "../helpers/environment";
 
 const styles = {
     hr: {
@@ -44,7 +45,7 @@ const Sidebar = (props) => {
     
             console.log('User Delete Function Called');
     
-            const fetch_url = `http://localhost:3000/user/delete/loggedInUser`;
+            const fetch_url = `${APIURL}/user/delete/loggedInUser`;
     
             fetch(fetch_url, {
                 method: 'DELETE',

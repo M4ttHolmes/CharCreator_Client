@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Button, Card, CardBody, CardText, CardSubtitle } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import APIURL from "../helpers/environment";
 
 const DisplayCharacter = (props) => {
     
@@ -15,7 +16,7 @@ const DisplayCharacter = (props) => {
             console.log("deleteCharacter Function Called");
             console.log(charId);
 
-            const fetch_url = `http://localhost:3000/character/${charId}`;
+            const fetch_url = `${APIURL}/character/${charId}`;
 
             fetch(fetch_url, {
                 method: "DELETE",
